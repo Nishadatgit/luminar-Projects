@@ -24,15 +24,22 @@ class ScreenHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: const Text(
-            'Demo App',
-            style: TextStyle(color: Colors.white),
-          ),
+      appBar: AppBar(
+        leading: const Icon(
+          Icons.home,
+          size: 20,
         ),
-        body: Container(
-          child: Image.network(
-              'https://image.shutterstock.com/image-photo/young-handsome-man-beard-wearing-260nw-1768126784.jpg'),
-        ),);
+        title: const Text(
+          'Demo App',
+          style: TextStyle(color: Colors.white),
+        ),
+      ),
+      body: Container(
+        width: 400,
+        height: 300,
+        child: Image.network(
+            'https://image.shutterstock.com/image-photo/young-handsome-man-beard-wearing-260nw-1768126784.jpg'),
+      ),
+    );
   }
 }
