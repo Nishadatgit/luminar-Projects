@@ -1,4 +1,5 @@
 import 'package:demo_project/home_screen.dart';
+import 'package:demo_project/listview_screen.dart';
 import 'package:demo_project/splash_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -13,9 +14,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
-        primarySwatch: Colors.pink,
+        primarySwatch: Colors.deepPurple,
       ),
-      home: HomeScreen2(),
+      home: TableList(),
     );
   }
 }
