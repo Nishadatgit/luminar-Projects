@@ -1,5 +1,6 @@
 import 'package:demo_project/home_screen.dart';
 import 'package:demo_project/listview_screen.dart';
+import 'package:demo_project/one_ui_phone.dart';
 import 'package:demo_project/splash_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.deepPurple,
       ),
-      home: TableList(),
+      home: OneUiPhone(),
     );
   }
 }
