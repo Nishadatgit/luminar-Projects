@@ -1,3 +1,4 @@
+import 'package:demo_project/assignments/custom_listview.dart';
 import 'package:demo_project/home_screen.dart';
 import 'package:demo_project/listview_builder.dart';
 import 'package:demo_project/assignments/contact_book.dart';
@@ -13,15 +14,13 @@ void main(List<String> args) {
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
- 
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
         primarySwatch: Colors.deepPurple,
       ),
-      home:const ContactBook(),
+      home: const CustomListView(),
     );
   }
 }
