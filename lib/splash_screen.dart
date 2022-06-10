@@ -1,6 +1,7 @@
 import 'dart:async';
-
+import 'package:lottie/lottie.dart';
 import 'package:demo_project/home_screen.dart';
+import 'package:demo_project/assignments/contact_book.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -12,44 +13,28 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen> {
   @override
-  void initState()  {
+  void initState() {
     super.initState();
 
     Timer(
-       const Duration(seconds: 3),
-        () => Navigator.pushReplacement(
-            context, MaterialPageRoute(builder: (context) =>const HomeScreen2())));
-   
+      const Duration(seconds: 3),
+      () => Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+          builder: (context) => const ContactBook(),
+        ),
+      ),
+    );
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.pink,
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Image.asset(
-              'assets/images/avatar.png',
-              height: 200,
-              width: 400,
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            const Text(
-              'Splash Screen',
-              style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 20,
-                  letterSpacing: 5,
-                  fontWeight: FontWeight.bold,
-                  fontStyle: FontStyle.italic),
-            )
-          ],
-        ),
-      ),
+      body: const Center(
+          child: Icon(
+        Icons.phone,
+        size: 100,
+      )),
     );
   }
 }
@@ -79,6 +64,8 @@ class ScreenHome extends StatelessWidget {
     );
   }
 }
+
+
 // import 'package:demo_project/home_screen.dart';
 // import 'package:flutter/src/widgets/framework.dart';
 // import 'package:splashscreen/splashscreen.dart';

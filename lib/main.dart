@@ -1,15 +1,17 @@
 import 'package:demo_project/home_screen.dart';
-import 'package:demo_project/listview_screen.dart';
+import 'package:demo_project/listview_builder.dart';
+import 'package:demo_project/assignments/contact_book.dart';
+import 'package:demo_project/listview_seperated.dart';
 import 'package:demo_project/one_ui_phone.dart';
 import 'package:demo_project/splash_screen.dart';
 import 'package:flutter/material.dart';
 
 void main(List<String> args) {
-  runApp(const MyApp());
+  runApp( MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+ 
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +19,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.deepPurple,
       ),
-      home: OneUiPhone(),
+      home:const ContactBook(),
     );
   }
 }

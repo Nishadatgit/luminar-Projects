@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class TableList extends StatelessWidget {
-  const TableList({Key? key}) : super(key: key);
+class ContactBook extends StatelessWidget {
+  const ContactBook({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
