@@ -36,8 +36,10 @@ class ContactBook extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(left: 10, right: 10, bottom: 10),
             child: TextFormField(
+              
               controller: _textController,
               decoration: InputDecoration(
+                
                 suffixIcon: const Icon(
                   Icons.mic,
                   size: 25,
@@ -47,6 +49,7 @@ class ContactBook extends StatelessWidget {
                 isDense: true,
                 hintText: 'Search contacts',
                 border: OutlineInputBorder(
+                  
                   borderRadius: BorderRadius.circular(10),
                 ),
               ),
