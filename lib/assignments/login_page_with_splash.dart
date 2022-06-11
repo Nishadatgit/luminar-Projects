@@ -1,4 +1,4 @@
-import 'package:demo_project/assignments/contact_book.dart';
+import 'package:demo_project/one_ui_phone.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
@@ -32,7 +32,8 @@ class LoginWithSplash extends StatelessWidget {
                   width: 500,
                   padding: const EdgeInsets.all(30),
                   decoration: BoxDecoration(
-                    border: Border.all(),
+                    border: Border.all(
+                        color: const Color.fromARGB(255, 4, 53, 94), width: 3),
                     borderRadius: BorderRadius.circular(10),
                     color: Colors.white.withOpacity(0.2),
                   ),
@@ -47,13 +48,12 @@ class LoginWithSplash extends StatelessWidget {
                             fontWeight: FontWeight.bold),
                       ),
                       Padding(
-                        padding: EdgeInsets.only(
+                        padding: const EdgeInsets.only(
                             top: 40, left: 8, right: 8, bottom: 8),
                         child: TextField(
-                          autofocus: true,
                           controller: userTextController,
                           toolbarOptions:
-                              ToolbarOptions(copy: true, paste: true),
+                              const ToolbarOptions(copy: true, paste: true),
                           decoration: const InputDecoration(
                             focusedBorder: OutlineInputBorder(
                               borderRadius:
@@ -101,7 +101,7 @@ class LoginWithSplash extends StatelessWidget {
                         padding: const EdgeInsets.only(left: 220, top: 20),
                         child: CircleAvatar(
                           radius: 20,
-                          backgroundColor: Colors.grey.withOpacity(0.2),
+                          backgroundColor: const Color.fromARGB(255, 4, 53, 94),
                           child: Padding(
                             padding: const EdgeInsets.only(right: 10),
                             child: IconButton(
@@ -114,7 +114,7 @@ class LoginWithSplash extends StatelessWidget {
                                       context,
                                       MaterialPageRoute(
                                         builder: (context) =>
-                                            const ContactBook(),
+                                            const OneUiPhone(),
                                       ));
                                 } else {
                                   makePopUp(context);
@@ -122,7 +122,7 @@ class LoginWithSplash extends StatelessWidget {
                               },
                               icon: const Icon(
                                 Icons.arrow_forward,
-                                color: Colors.black,
+                                color: Colors.white,
                                 size: 25,
                               ),
                             ),
