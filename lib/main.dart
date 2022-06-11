@@ -1,4 +1,6 @@
 import 'package:demo_project/assignments/custom_listview.dart';
+import 'package:demo_project/assignments/login_page_with_splash.dart';
+import 'package:demo_project/assignments/splash_screen_for_login.dart';
 import 'package:demo_project/home_screen.dart';
 import 'package:demo_project/listview_builder.dart';
 import 'package:demo_project/assignments/contact_book.dart';
@@ -21,7 +23,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.deepPurple,
       ),
-      home: const TextFieldEg(),
+      home: const SplashForLogin(),
     );
   }
 }

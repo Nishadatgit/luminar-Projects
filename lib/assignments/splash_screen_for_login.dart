@@ -1,0 +1,37 @@
+import 'dart:async';
+
+import 'package:demo_project/assignments/login_page_with_splash.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/src/foundation/key.dart';
+import 'package:flutter/src/widgets/framework.dart';
+import 'package:lottie/lottie.dart';
+
+class SplashForLogin extends StatefulWidget {
+  const SplashForLogin({Key? key}) : super(key: key);
+
+  @override
+  State<SplashForLogin> createState() => _SplashForLoginState();
+}
+
+class _SplashForLoginState extends State<SplashForLogin> {
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    Timer(Duration(seconds: 3), () {
+      Navigator.of(context).pushReplacement(MaterialPageRoute(
+        builder: (context) => const LoginWithSplash(),
+      ));
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Container(
+        child:
+            Center(child: LottieBuilder.asset('assets/lottie/paperplane.json')),
+      ),
+    );
+  }
+}

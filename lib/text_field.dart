@@ -6,8 +6,7 @@ class TextFieldEg extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final userTextController = TextEditingController();
-    final passTextController = TextEditingController();
+   
 
     return Scaffold(
       appBar: AppBar(
@@ -39,15 +38,15 @@ class TextFieldEg extends StatelessWidget {
                         color: Colors.black,
                         fontWeight: FontWeight.bold),
                   ),
-                  Padding(
+                const  Padding(
                     padding:
                         EdgeInsets.only(top: 40, left: 8, right: 8, bottom: 8),
                     child: TextField(
                       autofocus: true,
-                      controller: userTextController,
+                      
                       toolbarOptions: ToolbarOptions(copy: true, paste: true),
                       textCapitalization: TextCapitalization.words,
-                      decoration: const InputDecoration(
+                      decoration:  InputDecoration(
                         fillColor: Colors.white,
                         enabledBorder: OutlineInputBorder(
                           borderSide: BorderSide(color: Colors.black),
@@ -62,15 +61,15 @@ class TextFieldEg extends StatelessWidget {
                       ),
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
+                 const Padding(
+                    padding:  EdgeInsets.all(8.0),
                     child: TextField(
-                      controller: passTextController,
+                    
                       toolbarOptions:
-                          const ToolbarOptions(copy: true, paste: false),
+                           ToolbarOptions(copy: true, paste: false),
                       obscureText: true,
                       obscuringCharacter: '*',
-                      decoration: const InputDecoration(
+                      decoration:  InputDecoration(
                         prefixIcon: Icon(
                           Icons.password,
                           color: Colors.black,
@@ -91,19 +90,7 @@ class TextFieldEg extends StatelessWidget {
                         child: IconButton(
                           iconSize: 30,
                           hoverColor: Colors.pink,
-                          onPressed: () {
-                            final _user = userTextController.text;
-                            final _pass = passTextController.text;
-                            if (checkFields(_user, _pass) == true) {
-                              Navigator.pushReplacement(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => ContactBook(),
-                                  ));
-                            } else {
-                              makePopUp(context);
-                            }
-                          },
+                         onPressed: (){},
                           icon: const Icon(
                             Icons.arrow_forward,
                             color: Colors.black,
@@ -122,38 +109,7 @@ class TextFieldEg extends StatelessWidget {
     );
   }
 
-  bool checkFields(String uname, String psd) {
-    String password = 'nishad';
-    String username = 'nishad';
+  
 
-    if (uname != username || psd != password) {
-      return false;
-    } else {
-      return true;
-    }
-  }
-
-  makePopUp(BuildContext context) {
-    showDialog(
-        context: context,
-        builder: (ctx) {
-          return SimpleDialog(
-            title: const Text('Error'),
-            children: [
-              ListTile(
-                leading: const Text(
-                  'Incorrect username or password',
-                  style: TextStyle(color: Colors.red, fontSize: 13),
-                ),
-                trailing: IconButton(
-                  onPressed: () {
-                    Navigator.of(ctx).pop();
-                  },
-                  icon: const Icon(Icons.close),
-                ),
-              ),
-            ],
-          );
-        });
-  }
+  
 }
