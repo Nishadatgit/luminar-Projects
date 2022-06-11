@@ -37,7 +37,7 @@ class CustomListView extends StatelessWidget {
                 elevation: 5,
                 child: ListTile(
                   contentPadding:
-                      EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+                      const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
                   leading: Image.network(
                     imageUrls[index],
                     height: 200,
@@ -45,7 +45,7 @@ class CustomListView extends StatelessWidget {
                   ),
                   title: Text(
                     cities[index],
-                    style: TextStyle(fontWeight: FontWeight.bold),
+                    style: const TextStyle(fontWeight: FontWeight.bold),
                   ),
                   subtitle: Wrap(
                     direction: Axis.vertical,
