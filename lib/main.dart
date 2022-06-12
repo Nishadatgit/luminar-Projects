@@ -1,4 +1,5 @@
 import 'package:demo_project/assignments/custom_listview.dart';
+import 'package:demo_project/assignments/login_iu_custom_textfields.dart';
 import 'package:demo_project/assignments/login_page_with_splash.dart';
 import 'package:demo_project/assignments/splash_screen_for_login.dart';
 import 'package:demo_project/home_screen.dart';
@@ -23,7 +24,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.deepPurple,
       ),
-      home: const SplashForLogin(),
+      home: const LoginUiWithCustomTextFields(),
     );
   }
 }
