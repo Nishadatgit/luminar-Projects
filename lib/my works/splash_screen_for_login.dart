@@ -1,10 +1,11 @@
 import 'dart:async';
 
-import 'package:demo_project/assignments/login_page_with_splash.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:lottie/lottie.dart';
+
+import 'login_page_with_splash.dart';
 
 class SplashForLogin extends StatefulWidget {
   const SplashForLogin({Key? key}) : super(key: key);

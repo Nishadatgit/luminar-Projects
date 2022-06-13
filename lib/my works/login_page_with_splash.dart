@@ -11,19 +11,22 @@ class LoginWithSplash extends StatelessWidget {
     final passTextController = TextEditingController();
 
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: const Color.fromARGB(255, 4, 53, 94),
+        title: const Text(
+          'Login',
+          style: TextStyle(color: Colors.white, fontSize: 24),
+        ),
+        centerTitle: false,
+      ),
       resizeToAvoidBottomInset: false,
       body: Container(
         decoration: BoxDecoration(
           color: Colors.white.withOpacity(0.2),
         ),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Padding(
-                padding: const EdgeInsets.only(top: 50),
-                child: LottieBuilder.asset(
-                  'assets/lottie/developer.json',
-                  height: 230,
-                )),
             Center(
               child: Padding(
                 padding: const EdgeInsets.all(30.0),
@@ -164,7 +167,7 @@ class LoginWithSplash extends StatelessWidget {
                   style: TextStyle(color: Colors.red, fontSize: 15),
                 ),
                 trailing: CircleAvatar(
-                  backgroundColor: Colors.pink,
+                  backgroundColor: const Color.fromARGB(255, 4, 53, 94),
                   child: IconButton(
                     onPressed: () {
                       Navigator.of(ctx).pop();

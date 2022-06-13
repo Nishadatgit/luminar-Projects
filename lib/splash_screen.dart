@@ -56,10 +56,14 @@ class ScreenHome extends StatelessWidget {
         ),
       ),
       body: Container(
-        width: 400,
-        height: 300,
-        child: Image.network(
-            'https://image.shutterstock.com/image-photo/young-handsome-man-beard-wearing-260nw-1768126784.jpg'),
+        width: 50,
+        height: 50,
+        child: ElevatedButton(
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+          child: Text('GO back'),
+        ),
       ),
     );
   }
