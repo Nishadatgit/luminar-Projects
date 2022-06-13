@@ -1,5 +1,7 @@
 import 'package:demo_project/assignments/custom_listview.dart';
 import 'package:demo_project/assignments/login_iu_custom_textfields.dart';
+import 'package:demo_project/assignments/student_registration/login.dart';
+import 'package:demo_project/assignments/student_registration/signup.dart';
 import 'package:demo_project/home_screen.dart';
 import 'package:demo_project/listview_builder.dart';
 import 'package:demo_project/assignments/contact_book.dart';
@@ -25,7 +27,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.deepPurple,
       ),
-      home: const SplashForLogin(),
+      home: StudentLogin(),
     );
   }
 }
