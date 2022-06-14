@@ -68,11 +68,15 @@ class Login extends StatelessWidget {
                               isDense: true,
                               contentPadding: EdgeInsets.all(10)),
                           validator: (value) {
+                            const email = 'nishad@g.com';
+
                             if (value == null || value.isEmpty) {
                               return 'Required field';
                             } else if (EmailValidator.validate(value) ==
                                 false) {
                               return 'Enter a valid email ';
+                            } else if (value != email) {
+                              return "No account was found with email '$value'";
                             }
 
                             return null;
