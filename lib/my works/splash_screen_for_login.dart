@@ -1,6 +1,8 @@
 import 'dart:async';
 
+import 'package:demo_project/assignments/registration_form/login.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:lottie/lottie.dart';
@@ -19,9 +21,11 @@ class _SplashForLoginState extends State<SplashForLogin> {
   void initState() {
     // TODO: implement initState
     super.initState();
+    SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual,
+      overlays: [SystemUiOverlay.bottom]);
     Timer(Duration(seconds: 5), () {
       Navigator.of(context).pushReplacement(MaterialPageRoute(
-        builder: (context) => const LoginWithSplash(),
+        builder: (context) =>  Login(),
       ));
     });
   }

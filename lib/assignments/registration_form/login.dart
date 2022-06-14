@@ -1,6 +1,7 @@
 import 'package:demo_project/assignments/registration_form/signup.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class Login extends StatelessWidget {
   Login({Key? key}) : super(key: key);
@@ -123,7 +124,7 @@ class Login extends StatelessWidget {
                                 if (_checkSignupForm()) {
                                   if (checkPasswords(context)) {
                                     ScaffoldMessenger.of(context)
-                                        .showSnackBar(signupSnackbar);
+                                        .showSnackBar(loginSnack);
                                   }
                                 }
                               },
@@ -172,17 +173,24 @@ class Login extends StatelessWidget {
     }
   }
 
-  final signupSnackbar = const SnackBar(
-    content: Text(
+  final loginSnack = SnackBar(
+    content: const Text(
       'Logged in successfully',
-      style: TextStyle(color: Colors.white),
+      style: TextStyle(color: Colors.black),
     ),
     behavior: SnackBarBehavior.floating,
-    backgroundColor: redColor,
-    shape: RoundedRectangleBorder(
+    backgroundColor: Colors.white,
+    shape: const RoundedRectangleBorder(
       borderRadius: BorderRadius.all(
         Radius.circular(20),
       ),
+    ),
+    action: SnackBarAction(
+      label: 'Undo',
+      onPressed: () {
+        print('Clicked undo');
+      },
+      textColor: redColor,
     ),
     dismissDirection: DismissDirection.endToStart,
     clipBehavior: Clip.antiAlias,
