@@ -1,17 +1,20 @@
-import 'package:demo_project/assignments/student_registration/signup.dart';
+import 'package:demo_project/my%20works/registration_login/login.dart';
+import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
-class StudentLogin extends StatelessWidget {
-  StudentLogin({Key? key}) : super(key: key);
+class StudentSignup extends StatelessWidget {
+  StudentSignup({Key? key}) : super(key: key);
 
-  final _loginFormState = GlobalKey<FormState>();
-  final _passController = TextEditingController();
+  final _signupForm = GlobalKey<FormState>();
 
   static const blueColor = Color.fromARGB(255, 4, 53, 94);
 
+  final passwordField = TextEditingController();
+  final confirmPassword = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
-    const name = 'nishad';
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: SafeArea(
@@ -22,36 +25,38 @@ class StudentLogin extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.only(left: 10, top: 10, bottom: 5),
                   child: CircleAvatar(
-                    backgroundColor: Colors.grey.withOpacity(0.1),
-                    child: const Icon(
-                      Icons.menu,
-                      size: 30,
-                      color: blueColor,
-                    ),
-                  ),
+                      backgroundColor: Colors.grey.withOpacity(0.1),
+                      child: IconButton(
+                        padding: EdgeInsets.only(),
+                        onPressed: () {
+                          Navigator.of(context).pop();
+                        },
+                        icon: const Icon(
+                          Icons.arrow_back,
+                          size: 30,
+                          color: blueColor,
+                        ),
+                      )),
                 )
               ],
             ),
             Expanded(
               child: Padding(
-                padding: const EdgeInsets.only(
-                  left: 10,
-                  right: 10,
-                ),
+                padding: const EdgeInsets.only(right: 10, left: 10),
                 child: Container(
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(30),
                       color: Colors.grey.withOpacity(0.2)),
                   padding: const EdgeInsets.symmetric(horizontal: 30),
                   child: Form(
-                    key: _loginFormState,
+                    key: _signupForm,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         const Padding(
-                          padding: EdgeInsets.only(bottom: 30, top: 100),
+                          padding: EdgeInsets.only(bottom: 30, top: 50),
                           child: Text(
-                            'Login',
+                            'Create Your Account',
                             style: TextStyle(
                                 fontSize: 30, fontWeight: FontWeight.bold),
                           ),
@@ -72,8 +77,8 @@ class StudentLogin extends StatelessWidget {
                           validator: (value) {
                             if (value == null || value.isEmpty) {
                               return 'Required field';
-                            } else if (value != name) {
-                              return "No account found with name '$value'";
+                            } else if (value.contains(RegExp(r'[1-9]'))) {
+                              return 'Enter a valid name';
                             }
 
                             return null;
@@ -83,7 +88,10 @@ class StudentLogin extends StatelessWidget {
                           height: 15,
                         ),
                         TextFormField(
-                          obscureText: true,
+                          keyboardType: const TextInputType.numberWithOptions(),
+                          inputFormatters: [
+                            LengthLimitingTextInputFormatter(2)
+                          ],
                           decoration: InputDecoration(
                               filled: true,
                               errorBorder: const OutlineInputBorder(
@@ -92,13 +100,65 @@ class StudentLogin extends StatelessWidget {
                                       BorderRadius.all(Radius.circular(20))),
                               fillColor: Colors.white,
                               border: _border,
-                              suffixIcon: IconButton(
-                                  onPressed: () {},
-                                  icon: const Icon(Icons.remove_red_eye)),
-                              labelText: 'Password',
+                              labelText: 'Age',
                               labelStyle: const TextStyle(color: Colors.black),
                               isDense: true,
                               contentPadding: const EdgeInsets.all(15)),
+                          validator: (age) {
+                            if (age == null || age.isEmpty) {
+                              return 'Required field';
+                            }
+
+                            return null;
+                          },
+                        ),
+                        const SizedBox(
+                          height: 15,
+                        ),
+                        TextFormField(
+                          inputFormatters: [
+                            LengthLimitingTextInputFormatter(10)
+                          ],
+                          keyboardType: const TextInputType.numberWithOptions(),
+                          decoration: InputDecoration(
+                              filled: true,
+                              errorBorder: const OutlineInputBorder(
+                                  borderSide: BorderSide(color: Colors.red),
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(20))),
+                              fillColor: Colors.white,
+                              border: _border,
+                              labelText: 'Phone',
+                              labelStyle: const TextStyle(color: Colors.black),
+                              isDense: true,
+                              contentPadding: const EdgeInsets.all(15)),
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return 'Required field';
+                            } else if (value.length < 10) {
+                              return 'Enter a valid mobile number';
+                            }
+
+                            return null;
+                          },
+                        ),
+                        const SizedBox(
+                          height: 15,
+                        ),
+                        TextFormField(
+                          controller: passwordField,
+                          decoration: InputDecoration(
+                              filled: true,
+                              errorBorder: const OutlineInputBorder(
+                                  borderSide: BorderSide(color: Colors.red),
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(20))),
+                              fillColor: Colors.white,
+                              contentPadding: const EdgeInsets.all(15),
+                              border: _border,
+                              labelStyle: const TextStyle(color: Colors.black),
+                              labelText: 'Password',
+                              isDense: true),
                           validator: (value) {
                             if (value == null || value.isEmpty) {
                               return 'Required field';
@@ -108,7 +168,24 @@ class StudentLogin extends StatelessWidget {
 
                             return null;
                           },
-                          controller: _passController,
+                        ),
+                        const SizedBox(
+                          height: 15,
+                        ),
+                        TextFormField(
+                          controller: confirmPassword,
+                          decoration: InputDecoration(
+                              filled: true,
+                              errorBorder: const OutlineInputBorder(
+                                  borderSide: BorderSide(color: Colors.red),
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(20))),
+                              fillColor: Colors.white,
+                              border: _border,
+                              labelStyle: const TextStyle(color: Colors.black),
+                              labelText: 'Confirm password',
+                              isDense: true,
+                              contentPadding: const EdgeInsets.all(15)),
                         ),
                         const SizedBox(
                           height: 25,
@@ -128,19 +205,20 @@ class StudentLogin extends StatelessWidget {
                                   }
                                 }
                               },
-                              child: const Text('Login')),
+                              child: const Text('Save')),
                         ),
                         const SizedBox(
                           height: 10,
                         ),
                         TextButton(
                           onPressed: () {
-                            Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => StudentSignup(),
+                            Navigator.of(context)
+                                .pushReplacement(MaterialPageRoute(
+                              builder: (context) => StudentLogin(),
                             ));
                           },
                           child: const Text(
-                            "Don't have an account?",
+                            'Already have a account?',
                             style: TextStyle(color: blueColor),
                           ),
                         )
@@ -161,7 +239,7 @@ class StudentLogin extends StatelessWidget {
       borderSide: const BorderSide(color: blueColor, width: 2));
 
   bool _checkSignupForm() {
-    if (_loginFormState.currentState!.validate()) {
+    if (_signupForm.currentState!.validate()) {
       return true;
     } else {
       return false;
@@ -170,12 +248,11 @@ class StudentLogin extends StatelessWidget {
 
   final signupSnackbar = const SnackBar(
     content: Text(
-      'Login  Successfull',
-      style: TextStyle(color: blueColor),
+      'Account created Successfully',
+      style: TextStyle(color: Colors.white),
     ),
-    margin: EdgeInsets.only(bottom: 30, right: 20, left: 20),
     behavior: SnackBarBehavior.floating,
-    backgroundColor: Colors.white,
+    backgroundColor: blueColor,
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.all(
         Radius.circular(20),
@@ -186,9 +263,8 @@ class StudentLogin extends StatelessWidget {
   );
 
   final passSnack = const SnackBar(
-    margin: EdgeInsets.only(bottom: 30, right: 20, left: 20),
     content: Text(
-      'Incorrect password entered',
+      'Password and confirm password does not match',
       style: TextStyle(color: Colors.white),
     ),
     behavior: SnackBarBehavior.floating,
@@ -198,10 +274,10 @@ class StudentLogin extends StatelessWidget {
   );
 
   bool checkPasswords(BuildContext ctx) {
-    const password = 'nishad';
-    final pass = _passController.text;
+    final pass = passwordField.text;
+    final confirmPass = confirmPassword.text;
 
-    if (pass != password) {
+    if (pass != confirmPass || pass == null || confirmPass == null) {
       ScaffoldMessenger.of(ctx).showSnackBar(passSnack);
       return false;
     } else {

@@ -1,7 +1,9 @@
 import 'package:demo_project/assignments/custom_listview.dart';
 import 'package:demo_project/assignments/login_iu_custom_textfields.dart';
-import 'package:demo_project/assignments/student_registration/login.dart';
-import 'package:demo_project/assignments/student_registration/signup.dart';
+import 'package:demo_project/assignments/registration_form/login.dart';
+import 'package:demo_project/assignments/registration_form/signup.dart';
+import 'package:demo_project/my%20works/registration_login/login.dart';
+import 'package:demo_project/my%20works/registration_login/signup.dart';
 import 'package:demo_project/home_screen.dart';
 import 'package:demo_project/listview_builder.dart';
 import 'package:demo_project/assignments/contact_book.dart';
@@ -25,9 +27,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
-        primarySwatch: Colors.deepPurple,
+        primarySwatch: Colors.red,
       ),
-      home: StudentLogin(),
+      home: Login(),
     );
   }
 }
