@@ -1,15 +1,13 @@
 import 'dart:math';
 
-import 'package:demo_project/drawer/screens/about.dart';
-import 'package:demo_project/drawer/screens/profile.dart';
+import 'package:demo_project/my%20works/drawer/screens/about.dart';
+import 'package:demo_project/my%20works/drawer/screens/profile.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class NavigationDrawer extends StatefulWidget {
-  NavigationDrawer({Key? key}) : super(key: key);
-
-  late String currentImage;
+  const NavigationDrawer({Key? key}) : super(key: key);
 
   @override
   State<NavigationDrawer> createState() => _NavigationDrawerState();
@@ -116,7 +114,7 @@ class _NavigationDrawerState extends State<NavigationDrawer> {
                   ),
                 ),
               ),
-              Divider(),
+              const Divider(),
               ListTile(
                 minLeadingWidth: 20,
                 leading: const Icon(
@@ -124,14 +122,16 @@ class _NavigationDrawerState extends State<NavigationDrawer> {
                   color: Colors.black,
                   size: 20,
                 ),
-                onTap: () {},
+                onTap: () {
+                  Navigator.of(context).pop();
+                },
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10)),
                 tileColor: Colors.white,
                 textColor: Colors.black,
                 title: const Text('Home'),
               ),
-              Divider(),
+              const Divider(),
               ListTile(
                 minLeadingWidth: 20,
                 leading: const Icon(
@@ -194,7 +194,7 @@ class _NavigationDrawerState extends State<NavigationDrawer> {
       ),
       body: const Center(
         child: Text(
-          'Home Screen',
+          '',
           style: TextStyle(fontSize: 50, fontWeight: FontWeight.bold),
         ),
       ),
