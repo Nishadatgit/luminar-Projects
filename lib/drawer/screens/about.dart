@@ -1,22 +1,17 @@
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
-class CustomAppBAr extends StatefulWidget {
-  const CustomAppBAr({Key? key}) : super(key: key);
+class AboutScreen extends StatelessWidget {
+  const AboutScreen({Key? key}) : super(key: key);
 
-  @override
-  State<CustomAppBAr> createState() => _CustomAppBArState();
-}
-
-class _CustomAppBArState extends State<CustomAppBAr> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        iconTheme: const IconThemeData(color: Colors.black),
         elevation: 10,
         title: const Text(
-          'Page Title',
+          'About',
           style: TextStyle(color: Colors.black),
         ),
         actions: [
@@ -26,7 +21,6 @@ class _CustomAppBArState extends State<CustomAppBAr> {
             color: Colors.red,
           ),
           IconButton(
-          
               onPressed: () {},
               icon: const Icon(
                 Icons.search,
@@ -40,12 +34,13 @@ class _CustomAppBArState extends State<CustomAppBAr> {
             ),
           ),
         ],
-        leading: const Icon(
-          Icons.menu,
-          color: Colors.black,
-        ),
         backgroundColor: Colors.white,
-        systemOverlayStyle: SystemUiOverlayStyle.dark,
+        leading: GestureDetector(
+          child: const Icon(Icons.arrow_back),
+          onTap: () {
+            Navigator.of(context).pop();
+          },
+        ),
       ),
     );
   }
