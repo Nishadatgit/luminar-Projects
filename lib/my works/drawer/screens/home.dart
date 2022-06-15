@@ -21,9 +21,12 @@ class _NavigationDrawerState extends State<NavigationDrawer> {
     'https://backlightblog.com/images/2021/04/landscape-photography-header-2000x1310.jpg'
   ];
   late String current = images[0];
+  late bool _likeButton = false;
   @override
   void initState() {
     current = images[0];
+    _likeButton = false;
+
     super.initState();
   }
 
@@ -33,6 +36,8 @@ class _NavigationDrawerState extends State<NavigationDrawer> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor:
+          _likeButton ? Colors.white.withOpacity(0.9) : Colors.white,
       appBar: AppBar(
         iconTheme: const IconThemeData(color: Colors.black),
         elevation: 10,
@@ -42,8 +47,15 @@ class _NavigationDrawerState extends State<NavigationDrawer> {
         ),
         actions: [
           IconButton(
-            onPressed: () {},
-            icon: const Icon(EvaIcons.heartOutline),
+            onPressed: () {
+              print(_likeButton);
+              setState(() {
+                _likeButton = !_likeButton;
+              });
+            },
+            icon: !_likeButton
+                ? const Icon(EvaIcons.heartOutline)
+                : const Icon(EvaIcons.heart),
             color: Colors.red,
           ),
           IconButton(
@@ -89,6 +101,7 @@ class _NavigationDrawerState extends State<NavigationDrawer> {
                 child: UserAccountsDrawerHeader(
                   margin: const EdgeInsets.only(bottom: 0),
                   decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
                     color: Colors.white.withOpacity(0.1),
                     image: DecorationImage(
                         fit: BoxFit.fill,
@@ -140,18 +153,18 @@ class _NavigationDrawerState extends State<NavigationDrawer> {
                   size: 20,
                 ),
                 onTap: () {
-                  Navigator.of(context).pop();
+                  // Navigator.of(context).pop();
                   Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => AboutScreen(),
+                    builder: (context) => const AboutScreen(),
                   ));
                 },
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10)),
                 tileColor: Colors.white,
                 textColor: Colors.black,
-                title: const Text('About'),
+                title: const Hero(tag: 'about', child: Text('About')),
               ),
-              Divider(),
+              const Divider(),
               ListTile(
                 minLeadingWidth: 20,
                 leading: const Icon(
@@ -162,7 +175,7 @@ class _NavigationDrawerState extends State<NavigationDrawer> {
                 onTap: () {
                   Navigator.of(context).pop();
                   Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => ProfileScreen(),
+                    builder: (context) => const ProfileScreen(),
                   ));
                 },
                 shape: RoundedRectangleBorder(
@@ -170,6 +183,74 @@ class _NavigationDrawerState extends State<NavigationDrawer> {
                 tileColor: Colors.white,
                 textColor: Colors.black,
                 title: const Text('Profile'),
+              ),
+              Divider(),
+              ListTile(
+                minLeadingWidth: 20,
+                leading: const Icon(
+                  Icons.account_tree,
+                  color: Colors.black,
+                  size: 20,
+                ),
+                onTap: () {
+                  print('list tile tapped');
+                },
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10)),
+                tileColor: Colors.white,
+                textColor: Colors.black,
+                title: const Text('My account'),
+              ),
+              Divider(),
+              ListTile(
+                minLeadingWidth: 20,
+                leading: const Icon(
+                  Icons.near_me,
+                  color: Colors.black,
+                  size: 20,
+                ),
+                onTap: () {
+                  print('list tile tapped');
+                },
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10)),
+                tileColor: Colors.white,
+                textColor: Colors.black,
+                title: const Text('Nearby People'),
+              ),
+              Divider(),
+              ListTile(
+                minLeadingWidth: 20,
+                leading: const Icon(
+                  Icons.place,
+                  color: Colors.black,
+                  size: 20,
+                ),
+                onTap: () {
+                  print('list tile tapped');
+                },
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10)),
+                tileColor: Colors.white,
+                textColor: Colors.black,
+                title: const Text('Locations'),
+              ),
+              Divider(),
+              ListTile(
+                minLeadingWidth: 20,
+                leading: const Icon(
+                  Icons.share,
+                  color: Colors.black,
+                  size: 20,
+                ),
+                onTap: () {
+                  print('list tile tapped');
+                },
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10)),
+                tileColor: Colors.white,
+                textColor: Colors.black,
+                title: const Text('Share'),
               ),
               Divider(),
               ListTile(
@@ -192,12 +273,14 @@ class _NavigationDrawerState extends State<NavigationDrawer> {
           ),
         ),
       ),
-      body: const Center(
-        child: Text(
-          '',
-          style: TextStyle(fontSize: 50, fontWeight: FontWeight.bold),
-        ),
-      ),
+      body: Center(
+          child: _likeButton
+              ? const Icon(
+                  EvaIcons.heart,
+                  size: 300,
+                  color: Colors.red,
+                )
+              : const Text('Hey there')),
     );
   }
 }

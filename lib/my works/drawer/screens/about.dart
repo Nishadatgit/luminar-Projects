@@ -10,9 +10,12 @@ class AboutScreen extends StatelessWidget {
       appBar: AppBar(
         iconTheme: const IconThemeData(color: Colors.black),
         elevation: 10,
-        title: const Text(
-          'About',
-          style: TextStyle(color: Colors.black),
+        title: const Hero(
+          tag: 'about',
+          child:  Text(
+            'About',
+            style: TextStyle(color: Colors.black),
+          ),
         ),
         actions: [
           IconButton(
