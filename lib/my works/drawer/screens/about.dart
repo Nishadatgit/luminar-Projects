@@ -1,8 +1,10 @@
 import 'package:demo_project/my%20works/drawer/screens/home.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class AboutScreen extends StatelessWidget {
   const AboutScreen({Key? key}) : super(key: key);
@@ -10,6 +12,8 @@ class AboutScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
+      extendBodyBehindAppBar: false,
       backgroundColor: Colors.white.withOpacity(0.8),
       appBar: AppBar(
         iconTheme: const IconThemeData(color: Colors.black),
@@ -60,6 +64,7 @@ class AboutMe extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      clipBehavior: Clip.hardEdge,
       margin: const EdgeInsets.all(20),
       decoration: const BoxDecoration(
         borderRadius: BorderRadius.all(
@@ -72,32 +77,60 @@ class AboutMe extends StatelessWidget {
         ),
       ),
       child: ListView(
+        dragStartBehavior: DragStartBehavior.down,
+        physics: BouncingScrollPhysics(),
         children: [
-          const SizedBox(
-            height: 20,
-          ),
           GestureDetector(
             onTap: () {
-              const ImageDetails(image: 'assets/images/mypic.jpg');
+              Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) =>
+                    const ImageDetails(image: 'assets/images/mypic.jpg'),
+              ));
             },
-            child: const Hero(
-              tag: 'img',
-              child: CircleAvatar(
-                radius: 50,
-                backgroundImage: AssetImage('assets/images/mypic.jpg',),
+            child: Padding(
+              padding: const EdgeInsets.only(left: 125, right: 125, top: 20),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(100),
+                child: Hero(
+                  tag: 'img',
+                  child: Container(
+                    width: 100,
+                    height: 100,
+                    decoration: const BoxDecoration(
+                      image: DecorationImage(
+                        fit: BoxFit.cover,
+                        image: AssetImage('assets/images/mypic.jpg'),
+                      ),
+                    ),
+                  ),
+                ),
               ),
             ),
           ),
-          myrow('Nishad', FontAwesomeIcons.person),
-          myrow('Flutter developer', Icons.work),
-          myrow('_nishxd', FontAwesomeIcons.instagram),
-          myrow('Nishadatgit', FontAwesomeIcons.github)
+          const MyRow(text: 'Nishad', icon: FontAwesomeIcons.person),
+          const MyRow(text: 'Flutter developer', icon: Icons.work),
+          const MyRow(text: '_nishxd', icon: FontAwesomeIcons.instagram),
+          GestureDetector(
+              onTap: () {
+                Uri url = Uri.parse('https://github.com/Nishadatgit');
+                launchUrl(url);
+              },
+              child: const MyRow(
+                  text: 'Nishadatgit', icon: FontAwesomeIcons.github),)
         ],
       ),
     );
   }
+}
 
-  myrow(text, icon) {
+class MyRow extends StatelessWidget {
+  const MyRow({Key? key, required this.text, required this.icon})
+      : super(key: key);
+  final String text;
+  final dynamic icon;
+
+  @override
+  Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(top: 20, bottom: 20),
       child: Row(
