@@ -59,51 +59,41 @@ class AboutMe extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      children: [
-        Container(
-          margin: const EdgeInsets.all(20),
-          decoration: const BoxDecoration(
-            borderRadius: BorderRadius.all(
-              Radius.circular(20),
-            ),
-            gradient: LinearGradient(
-              colors: [Color(0xFFcc2b5e), Color(0xFF753a88)],
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-            ),
-          ),
-          child: Padding(
-            padding: const EdgeInsets.only(
-              top: 0.0,
-            ),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                const SizedBox(
-                  height: 20,
-                ),
-                GestureDetector(
-                  onTap: () {
-                    const ImageDetails(image: 'assets/images/mypic.jpg');
-                  },
-                  child: const Hero(
-                    tag: 'img',
-                    child: CircleAvatar(
-                      radius: 50,
-                      backgroundImage: AssetImage('assets/images/mypic.jpg'),
-                    ),
-                  ),
-                ),
-                myrow('Nishad', FontAwesomeIcons.person),
-                myrow('Flutter developer', Icons.work),
-                myrow('_nishxd', FontAwesomeIcons.instagram),
-                myrow('Nishadatgit', FontAwesomeIcons.github)
-              ],
-            ),
-          ),
+    return Container(
+      margin: const EdgeInsets.all(20),
+      decoration: const BoxDecoration(
+        borderRadius: BorderRadius.all(
+          Radius.circular(20),
         ),
-      ],
+        gradient: LinearGradient(
+          colors: [Color(0xFFcc2b5e), Color(0xFF753a88)],
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+        ),
+      ),
+      child: ListView(
+        children: [
+          const SizedBox(
+            height: 20,
+          ),
+          GestureDetector(
+            onTap: () {
+              const ImageDetails(image: 'assets/images/mypic.jpg');
+            },
+            child: const Hero(
+              tag: 'img',
+              child: CircleAvatar(
+                radius: 50,
+                backgroundImage: AssetImage('assets/images/mypic.jpg',),
+              ),
+            ),
+          ),
+          myrow('Nishad', FontAwesomeIcons.person),
+          myrow('Flutter developer', Icons.work),
+          myrow('_nishxd', FontAwesomeIcons.instagram),
+          myrow('Nishadatgit', FontAwesomeIcons.github)
+        ],
+      ),
     );
   }
 

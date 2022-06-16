@@ -37,7 +37,7 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.pink[500],
-        title: const Text('Home',style: TextStyle(color: Colors.white)),
+        title: const Text('Home', style: TextStyle(color: Colors.white)),
       ),
       drawer: Theme(
         data: Theme.of(context).copyWith(canvasColor: Colors.pink[500]),
@@ -156,7 +156,35 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
               const MyListTile(
                 title: 'Send',
                 leadingIcon: Icon(Icons.send),
-              )
+              ),
+              GestureDetector(
+                onTap: () {
+                  showDialog(
+                      context: context,
+                      builder: (ctx) {
+                        return AlertDialog(
+                          title: const Text('Do you want to exit?'),
+                          actions: [
+                            TextButton(
+                              onPressed: () {
+                                Navigator.of(context).pop();
+                              },
+                              child: const Text('Yes'),
+                            ),
+                            TextButton(
+                                onPressed: () {
+                                  Navigator.of(ctx).pop();
+                                },
+                                child: const Text('Cancel'))
+                          ],
+                        );
+                      });
+                },
+                child: const MyListTile(
+                  title: 'Exit',
+                  leadingIcon: Icon(Icons.exit_to_app),
+                ),
+              ),
             ],
           ),
         ),
@@ -169,4 +197,29 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
       ),
     );
   }
+}
+
+void showAlertBox(BuildContext cttx) {
+  showDialog(
+      barrierDismissible: false,
+      context: cttx,
+      builder: (ctx) {
+        return AlertDialog(
+          content: Icon(Icons.hide_image),
+          title: const Text('Do you want to exit?'),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.of(cttx).pop();
+              },
+              child: const Text('Ok'),
+            ),
+            TextButton(
+                onPressed: () {
+                  Navigator.of(ctx).pop();
+                },
+                child: const Text('Cancel'))
+          ],
+        );
+      });
 }

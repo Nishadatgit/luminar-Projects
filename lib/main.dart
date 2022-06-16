@@ -1,9 +1,11 @@
+import 'package:demo_project/alert_dialog.dart';
 import 'package:demo_project/assignments/custom_drawer/screens/home.dart';
 import 'package:demo_project/assignments/custom_listview.dart';
 import 'package:demo_project/assignments/login_iu_custom_textfields.dart';
 import 'package:demo_project/assignments/registration_form/login.dart';
 import 'package:demo_project/assignments/registration_form/signup.dart';
 import 'package:demo_project/assignments/custom_appbar.dart';
+import 'package:demo_project/gridview.dart';
 import 'package:demo_project/my%20works/drawer/screens/home.dart';
 import 'package:demo_project/my%20works/registration_login/login.dart';
 import 'package:demo_project/my%20works/registration_login/signup.dart';
@@ -33,7 +35,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.red,
       ),
-      home: const NavigationDrawer(),
+      home: const MyGridView(),
     );
   }
 }
