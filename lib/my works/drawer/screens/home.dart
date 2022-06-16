@@ -31,7 +31,6 @@ class _NavigationDrawerState extends State<NavigationDrawer> {
   }
 
   String profile = 'assets/images/mypic.jpg';
-  // String myPic = 'assets/images/insta_dp.jpg';
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +47,6 @@ class _NavigationDrawerState extends State<NavigationDrawer> {
         actions: [
           IconButton(
             onPressed: () {
-              print(_likeButton);
               setState(() {
                 _likeButton = !_likeButton;
               });
@@ -184,7 +182,7 @@ class _NavigationDrawerState extends State<NavigationDrawer> {
                 textColor: Colors.black,
                 title: const Text('Profile'),
               ),
-              Divider(),
+              const Divider(),
               ListTile(
                 minLeadingWidth: 20,
                 leading: const Icon(
@@ -192,16 +190,14 @@ class _NavigationDrawerState extends State<NavigationDrawer> {
                   color: Colors.black,
                   size: 20,
                 ),
-                onTap: () {
-                  print('list tile tapped');
-                },
+                onTap: () {},
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10)),
                 tileColor: Colors.white,
                 textColor: Colors.black,
                 title: const Text('My account'),
               ),
-              Divider(),
+              const Divider(),
               ListTile(
                 minLeadingWidth: 20,
                 leading: const Icon(
@@ -209,16 +205,14 @@ class _NavigationDrawerState extends State<NavigationDrawer> {
                   color: Colors.black,
                   size: 20,
                 ),
-                onTap: () {
-                  print('list tile tapped');
-                },
+                onTap: () {},
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10)),
                 tileColor: Colors.white,
                 textColor: Colors.black,
                 title: const Text('Nearby People'),
               ),
-              Divider(),
+              const Divider(),
               ListTile(
                 minLeadingWidth: 20,
                 leading: const Icon(
@@ -226,16 +220,14 @@ class _NavigationDrawerState extends State<NavigationDrawer> {
                   color: Colors.black,
                   size: 20,
                 ),
-                onTap: () {
-                  print('list tile tapped');
-                },
+                onTap: () {},
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10)),
                 tileColor: Colors.white,
                 textColor: Colors.black,
                 title: const Text('Locations'),
               ),
-              Divider(),
+              const Divider(),
               ListTile(
                 minLeadingWidth: 20,
                 leading: const Icon(
@@ -243,16 +235,14 @@ class _NavigationDrawerState extends State<NavigationDrawer> {
                   color: Colors.black,
                   size: 20,
                 ),
-                onTap: () {
-                  print('list tile tapped');
-                },
+                onTap: () {},
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10)),
                 tileColor: Colors.white,
                 textColor: Colors.black,
                 title: const Text('Share'),
               ),
-              Divider(),
+              const Divider(),
               ListTile(
                 minLeadingWidth: 20,
                 leading: const Icon(
@@ -260,9 +250,7 @@ class _NavigationDrawerState extends State<NavigationDrawer> {
                   color: Colors.white,
                   size: 20,
                 ),
-                onTap: () {
-                  print('list tile tapped');
-                },
+                onTap: () {},
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10)),
                 tileColor: Colors.red,
