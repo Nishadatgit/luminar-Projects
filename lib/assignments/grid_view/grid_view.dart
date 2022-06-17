@@ -41,6 +41,7 @@ class IconGridView extends StatelessWidget {
       ),
       body: GridView.count(
           crossAxisCount: 2,
+          shrinkWrap: true,
           children: List.generate(titles.length, (index) {
             return Padding(
               padding: const EdgeInsets.only(top: 30),

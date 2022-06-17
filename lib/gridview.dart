@@ -2,6 +2,7 @@ import 'package:demo_project/assignments/custom_drawer/widgets/image_viewer.dart
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class MyGridView extends StatelessWidget {
   const MyGridView({Key? key}) : super(key: key);
@@ -10,9 +11,14 @@ class MyGridView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Image Gallery'),
+        backgroundColor: Colors.white,
+        title: Text(
+          'Image Gallery',
+          style: GoogleFonts.aBeeZee(color: Colors.black),
+        ),
       ),
       body: GridView.count(
+        physics: const BouncingScrollPhysics(),
         crossAxisCount: 3,
         mainAxisSpacing: 10,
         crossAxisSpacing: 10,
@@ -57,6 +63,10 @@ Future<void> showNetworkImagePopup(BuildContext ctx, String image) async {
             Navigator.of(ctxx).pop();
           },
           child: AlertDialog(
+            title: const Icon(
+              Icons.close,
+              color: Colors.grey,
+            ),
             backgroundColor: Colors.transparent,
             content: Container(
               height: 300,

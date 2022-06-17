@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 class AssetImageViewer extends StatelessWidget {
   const AssetImageViewer({Key? key, required this.image}) : super(key: key);
 
@@ -20,17 +19,16 @@ class AssetImageViewer extends StatelessWidget {
   }
 }
 
-
 class NetworkImageViewer extends StatelessWidget {
   const NetworkImageViewer({Key? key, required this.image}) : super(key: key);
   final String image;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.white.withOpacity(0.9),
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.only(top: 20, left: 10, right: 10),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
@@ -38,14 +36,21 @@ class NetworkImageViewer extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   GestureDetector(
-                      onTap: () {
-                        Navigator.of(context).pop();
-                      },
-                      child: const Icon(Icons.arrow_back)),
+                    onTap: () {
+                      Navigator.of(context).pop();
+                    },
+                    child: const CircleAvatar(
+                      backgroundColor: Colors.white,
+                      child: Icon(
+                        Icons.arrow_back_ios_new,
+                        color: Colors.black,
+                      ),
+                    ),
+                  ),
                 ],
               ),
               const SizedBox(
-                height: 200,
+                height: 150,
               ),
               GestureDetector(
                 onTap: () {
