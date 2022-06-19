@@ -53,10 +53,10 @@ class MyCustomGridView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.teal,
+        backgroundColor: Colors.white,
         title: Text(
           'Gallery',
-          style: GoogleFonts.aladin(fontSize: 25),
+          style: GoogleFonts.aladin(fontSize: 25, color: Colors.black),
         ),
         elevation: 0,
         leading: const Padding(
@@ -69,7 +69,7 @@ class MyCustomGridView extends StatelessWidget {
         leadingWidth: 20,
       ),
       body: Container(
-        decoration: BoxDecoration(color: Colors.teal[500]),
+        decoration: BoxDecoration(color: Colors.white),
         child: GridView.extent(
           //If the scroll view does not shrink wrap, then the scroll view will expand to the maximum allowed size in the scrollDirection. If the scroll view has unbounded constraints in the scrollDirection, then shrinkWrap must be true.
           shrinkWrap: true,

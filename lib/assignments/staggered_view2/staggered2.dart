@@ -12,12 +12,12 @@ class ThreeRowStag extends StatelessWidget {
   ThreeRowStag({Key? key}) : super(key: key);
 
   final List<String> images = [
-    'https://images.unsplash.com/photo-1653656091256-3caf051d9565?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=388&q=80',
+    'https://images.unsplash.com/photo-1655589135455-353ecdfb9c64?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80',
     'https://images.unsplash.com/photo-1655411439249-6a72181b4bb2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=435&q=80',
-    'https://images.unsplash.com/photo-1655317175238-b59bf8eb0469?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80',
+    'https://images.unsplash.com/photo-1655631123287-705886967790?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80',
     'https://images.unsplash.com/photo-1655395340958-1c2a24c9742a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=432&q=80',
-    'https://images.unsplash.com/photo-1655338535123-1a552c71cb03?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80',
-    'https://images.unsplash.com/photo-1655414973327-20d028adb728?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
+    'https://images.unsplash.com/photo-1494548162494-384bba4ab999?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80',
+    'https://images.unsplash.com/photo-1655394444359-3a2d868dd047?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80',
     'https://images.unsplash.com/photo-1653656120539-dba95a8e0d01?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=388&q=80',
     'https://images.unsplash.com/photo-1655365225178-b1b4c59cbdb2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
     'https://images.unsplash.com/photo-1655322974108-b997c6e2e24d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80',
@@ -26,14 +26,14 @@ class ThreeRowStag extends StatelessWidget {
     'https://images.unsplash.com/photo-1655402709998-ac885a8ff4c8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80'
   ];
   final List titles = [
-    "Harry",
-    "Ross",
-    "Bruce",
-    "Cook",
-    "Carolyn",
-    "Morgan",
-    "Albert",
-    "Walker",
+    "Rivers",
+    "Mountains",
+    "Rocks",
+    "Joy",
+    "Sunset",
+    "Snow",
+    "Blossom",
+    "Winter",
     "Randy",
     "Reed",
     "Larry",
@@ -51,12 +51,12 @@ class ThreeRowStag extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey,
+      backgroundColor: Colors.black,
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(45),
+        preferredSize: const Size.fromHeight(45),
         child: AppBar(
           backgroundColor: Colors.black,
-          title: Text('Galleria ',
+          title: Text('Cards ',
               style: GoogleFonts.aBeeZee(
                   color: Colors.white,
                   fontSize: 20,
@@ -65,19 +65,25 @@ class ThreeRowStag extends StatelessWidget {
         ),
       ),
       body: Container(
-        margin: const EdgeInsets.all(10),
+        margin: const EdgeInsets.all(5),
         child: StaggeredGridView.countBuilder(
             shrinkWrap: true,
             reverse: false,
             physics: const BouncingScrollPhysics(),
-            crossAxisSpacing: 10,
+            crossAxisSpacing: 2,
             itemCount: images.length,
             crossAxisCount: 3,
             itemBuilder: (ctx, index) {
               return Container(
                 // height: index.isEven ? 200 : 300,
-                decoration: const BoxDecoration(color: Colors.white),
-                margin: const EdgeInsets.only(top: 10, left: 5, right: 5),
+                decoration: const BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(8),
+                  ),
+                ),
+
+                margin: const EdgeInsets.only(top: 5, left: 2, right: 2),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -86,9 +92,12 @@ class ThreeRowStag extends StatelessWidget {
                       child: Padding(
                         padding:
                             const EdgeInsets.only(left: 5, right: 5, top: 5),
-                        child: Image.network(
-                          images[index],
-                          fit: BoxFit.cover,
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(10),
+                          child: Image.network(
+                            images[index],
+                            fit: BoxFit.cover,
+                          ),
                         ),
                       ),
                     ),
@@ -96,20 +105,9 @@ class ThreeRowStag extends StatelessWidget {
                       padding: const EdgeInsets.only(top: 10, left: 20),
                       child: Text(
                         titles[index],
-                        style: const TextStyle(fontWeight: FontWeight.bold),
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 20),
-                      child: Text(
-                        RandomDate.withStartYear(2010).random().toString(),
                         style: const TextStyle(
-                          color: Colors.grey,
-                        ),
-                        maxLines: 1,
+                            fontWeight: FontWeight.bold,
+                            color: Color.fromARGB(255, 152, 171, 9)),
                       ),
                     ),
                     const Padding(
