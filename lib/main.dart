@@ -1,6 +1,7 @@
 import 'package:demo_project/alert_dialog.dart';
 import 'package:demo_project/assignments/custom_drawer/screens/home.dart';
 import 'package:demo_project/assignments/custom_listview.dart';
+import 'package:demo_project/assignments/custom_tab/custom_tab.dart';
 import 'package:demo_project/assignments/grid_view/grid_view.dart';
 import 'package:demo_project/assignments/gridview%20custom/extended_grid.dart';
 import 'package:demo_project/assignments/gridview%20custom/staggered2.dart';
@@ -41,7 +42,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.red,
       ),
-      home: TabBarsDemo(),
+      home: CustomTabView(),
     );
   }
 }
