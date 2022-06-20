@@ -20,6 +20,7 @@ import 'package:demo_project/listview_seperated.dart';
 import 'package:demo_project/one_ui_phone.dart';
 import 'package:demo_project/splash_screen.dart';
 import 'package:demo_project/staggered_gridview.dart';
+import 'package:demo_project/tab_bars.dart';
 import 'package:demo_project/text_field.dart';
 import 'package:demo_project/validation_form.dart';
 import 'package:flutter/material.dart';
@@ -40,7 +41,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.red,
       ),
-      home: MyCustomGridView(),
+      home: TabBarsDemo(),
     );
   }
 }
