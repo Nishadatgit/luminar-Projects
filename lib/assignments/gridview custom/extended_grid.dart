@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
-
 import 'package:google_fonts/google_fonts.dart';
 import 'package:random_date/random_date.dart';
 
@@ -64,6 +63,7 @@ class MyCustomGridView extends StatelessWidget {
           child: Icon(
             Icons.arrow_back_ios,
             size: 20,
+            color: Colors.black,
           ),
         ),
         leadingWidth: 20,
