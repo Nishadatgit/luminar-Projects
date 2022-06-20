@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
 import 'package:google_fonts/google_fonts.dart';
 import 'package:random_date/random_date.dart';
 
@@ -69,7 +69,7 @@ class MyCustomGridView extends StatelessWidget {
         leadingWidth: 20,
       ),
       body: Container(
-        decoration: BoxDecoration(color: Colors.white),
+        decoration: const BoxDecoration(color: Colors.white),
         child: GridView.extent(
           //If the scroll view does not shrink wrap, then the scroll view will expand to the maximum allowed size in the scrollDirection. If the scroll view has unbounded constraints in the scrollDirection, then shrinkWrap must be true.
           shrinkWrap: true,

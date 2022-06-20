@@ -40,7 +40,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.red,
       ),
-      home: ThreeRowStag(),
+      home: MyCustomGridView(),
     );
   }
 }
