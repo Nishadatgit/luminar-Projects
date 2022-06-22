@@ -12,6 +12,7 @@ import 'package:demo_project/assignments/custom_appbar.dart';
 import 'package:demo_project/assignments/staggered_grid/staggered_grid.dart';
 import 'package:demo_project/assignments/staggered_view2/staggered2.dart';
 import 'package:demo_project/bottom_nav_bar.dart';
+import 'package:demo_project/curved_bottom_nav_bar.dart';
 import 'package:demo_project/google_nav_bar.dart';
 import 'package:demo_project/gridview.dart';
 import 'package:demo_project/gridview_builder.dart';
@@ -44,7 +45,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.red,
       ),
-      home:const MyGoogleNavBar(),
+      home:const MyCurvedBottomNav(),
     );
   }
 }
