@@ -40,7 +40,7 @@ class _MyAnimationsEgState extends State<MyAnimationsEg> {
                     toggleDirection, // clicking button changes animation direction
                 child: const Text('Click me !'),
               ),
-              Text('haha')
+             const Text('haha')
             ],
           ),
         ),

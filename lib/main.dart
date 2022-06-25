@@ -22,6 +22,8 @@ import 'package:demo_project/home_screen.dart';
 import 'package:demo_project/listview_builder.dart';
 import 'package:demo_project/assignments/contact_book.dart';
 import 'package:demo_project/listview_seperated.dart';
+import 'package:demo_project/onboarding/onboarding.dart';
+import 'package:demo_project/onboarding/onborading2.dart';
 import 'package:demo_project/one_ui_phone.dart';
 import 'package:demo_project/splash_screen.dart';
 import 'package:demo_project/staggered_gridview.dart';
@@ -44,9 +46,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
+        
         primarySwatch: Colors.red,
       ),
-      home: const MyAnimationsEg(),
+      home: const MyOnBoarding2(),
     );
   }
 }
