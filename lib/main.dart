@@ -14,6 +14,7 @@ import 'package:demo_project/assignments/staggered_grid/staggered_grid.dart';
 import 'package:demo_project/assignments/staggered_view2/staggered2.dart';
 import 'package:demo_project/bottom_nav_bar.dart';
 import 'package:demo_project/curved_bottom_nav_bar.dart';
+import 'package:demo_project/expanded.dart';
 import 'package:demo_project/google_nav_bar.dart';
 import 'package:demo_project/gridview.dart';
 import 'package:demo_project/gridview_builder.dart';
@@ -22,8 +23,8 @@ import 'package:demo_project/home_screen.dart';
 import 'package:demo_project/listview_builder.dart';
 import 'package:demo_project/assignments/contact_book.dart';
 import 'package:demo_project/listview_seperated.dart';
-import 'package:demo_project/onboarding/onboarding.dart';
-import 'package:demo_project/onboarding/onborading2.dart';
+//import 'package:demo_project/onboarding/onboarding.dart';
+//import 'package:demo_project/onboarding/onborading2.dart';
 import 'package:demo_project/one_ui_phone.dart';
 import 'package:demo_project/splash_screen.dart';
 import 'package:demo_project/staggered_gridview.dart';
@@ -46,10 +47,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
-        
         primarySwatch: Colors.red,
       ),
-      home: const MyOnBoarding2(),
+      home: const MyExpanded(),
     );
   }
 }
