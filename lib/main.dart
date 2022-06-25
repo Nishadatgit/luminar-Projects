@@ -1,3 +1,4 @@
+import 'package:demo_project/accordion.dart';
 import 'package:demo_project/alert_dialog.dart';
 import 'package:demo_project/animations.dart';
 import 'package:demo_project/assignments/custom_drawer/screens/home.dart';
@@ -49,7 +50,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.red,
       ),
-      home: const MyExpanded(),
+      home: const MyAccordion(),
     );
   }
 }
