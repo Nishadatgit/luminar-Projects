@@ -19,8 +19,21 @@ class _FixedAppBarWithSearchState extends State<FixedAppBarWithSearch> {
             backgroundColor: Colors.blue,
             title: const Text('Custom app bar'),
             centerTitle: true,
-            actions: const [Icon(Icons.shop)],
+            actions: [
+              Container(
+                width: 60,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: const [
+                    Icon(Icons.shopping_cart),
+                    Icon(Icons.favorite_outline)
+                  ],
+                ),
+              )
+            ],
             bottom: AppBar(
+              elevation: 0,
+              backgroundColor: Colors.blue,
               title: Padding(
                 padding: const EdgeInsets.only(
                   bottom: 20,
