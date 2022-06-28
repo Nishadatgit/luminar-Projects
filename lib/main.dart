@@ -6,6 +6,7 @@ import 'package:demo_project/assignments/bottom_sheet/bottom_sheet.dart';
 import 'package:demo_project/assignments/custom_drawer/screens/home.dart';
 import 'package:demo_project/assignments/custom_listview.dart';
 import 'package:demo_project/assignments/custom_tab/custom_tab.dart';
+import 'package:demo_project/assignments/farmers_fresh_zone_ui/home.dart';
 import 'package:demo_project/assignments/grid_view/grid_view.dart';
 import 'package:demo_project/assignments/gridview%20custom/extended_grid.dart';
 import 'package:demo_project/assignments/gridview%20custom/staggered2.dart';
@@ -54,6 +55,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.red,
       ),
@@ -62,7 +64,7 @@ class MyApp extends StatelessWidget {
         'profile': (context) => const ProfilePage(),
         'home': (context) => const HomePage()
       },
-      home: FixedAppBarWithSearch(),
+      home: FarmersHome(),
     );
   }
 }
