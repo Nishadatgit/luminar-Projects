@@ -27,6 +27,9 @@ import 'package:demo_project/home_screen.dart';
 import 'package:demo_project/listview_builder.dart';
 import 'package:demo_project/assignments/contact_book.dart';
 import 'package:demo_project/listview_seperated.dart';
+import 'package:demo_project/named_routers/home.dart';
+import 'package:demo_project/named_routers/profile.dart';
+import 'package:demo_project/named_routers/settings.dart';
 //import 'package:demo_project/onboarding/onboarding.dart';
 //import 'package:demo_project/onboarding/onborading2.dart';
 import 'package:demo_project/one_ui_phone.dart';
@@ -53,7 +56,12 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.red,
       ),
-      home: const NewBottomSheet(),
+      routes: {
+        'settings': (context) => const SettingsPage(),
+        'profile': (context) => const ProfilePage(),
+        'home': (context) => const HomePage()
+      },
+      initialRoute: 'home',
     );
   }
 }
