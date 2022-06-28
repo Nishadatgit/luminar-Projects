@@ -1,6 +1,7 @@
 import 'package:demo_project/accordion.dart';
 import 'package:demo_project/alert_dialog.dart';
 import 'package:demo_project/animations.dart';
+import 'package:demo_project/app_bars/fixed_app_bar_with_search.dart';
 import 'package:demo_project/assignments/bottom_sheet/bottom_sheet.dart';
 import 'package:demo_project/assignments/custom_drawer/screens/home.dart';
 import 'package:demo_project/assignments/custom_listview.dart';
@@ -61,7 +62,7 @@ class MyApp extends StatelessWidget {
         'profile': (context) => const ProfilePage(),
         'home': (context) => const HomePage()
       },
-      initialRoute: 'home',
+      home: FixedAppBarWithSearch(),
     );
   }
 }
