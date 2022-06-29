@@ -57,14 +57,16 @@ class LoginHome extends StatelessWidget {
                             borderRadius: BorderRadius.circular(20),
                           ),
                         ),
-                        onPressed: () {},
+                        onPressed: () {
+                          showPopup(context);
+                        },
                         child: const Text('Login')),
                   ),
                   SizedBox(
                     width: MediaQuery.of(context).size.width * 0.46,
                     child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                          primary: Colors.grey.withOpacity(0.5),
+                          primary: Colors.white.withOpacity(0.2),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(20),
                           ),
@@ -112,4 +114,14 @@ class LoginHome extends StatelessWidget {
       ),
     );
   }
+
+  showPopup(BuildContext ctx) {
+    return showDialog(
+        context: ctx,
+        builder: (ctxx) {
+          return AlertDialog();
+        });
+  }
 }
+
+//aniatedswitcher
