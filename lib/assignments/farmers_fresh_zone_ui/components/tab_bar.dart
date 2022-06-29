@@ -12,9 +12,11 @@ class FarmersTabArea extends StatelessWidget {
       margin: const EdgeInsets.only(bottom: 5),
       padding: const EdgeInsets.symmetric(horizontal: 5),
       height: 50,
+      width: double.infinity,
       child: SingleChildScrollView(
         scrollDirection: Axis.horizontal,
         child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             FarmersTab(
               tabName: 'vegetables',
