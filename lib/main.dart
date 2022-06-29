@@ -39,6 +39,7 @@ import 'package:demo_project/splash_screen.dart';
 import 'package:demo_project/staggered_gridview.dart';
 import 'package:demo_project/tab_bars.dart';
 import 'package:demo_project/text_field.dart';
+import 'package:demo_project/ui/login_1.dart';
 import 'package:demo_project/validation_form.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -64,7 +65,7 @@ class MyApp extends StatelessWidget {
         'profile': (context) => const ProfilePage(),
         'home': (context) => const HomePage()
       },
-      home: FarmersHome(),
+      home: const LoginHome(),
     );
   }
 }
