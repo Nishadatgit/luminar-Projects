@@ -151,10 +151,6 @@ class LoginHome extends StatelessWidget {
                                 : Colors.transparent),
                         child: TextButton(
                             onPressed: () {
-                              // setState(() {
-                              //   index = 0;
-                              //   print(index);
-                              // });
                               indexNotifier.value = 0;
                               indexNotifier.notifyListeners();
                             },
@@ -173,21 +169,27 @@ class LoginHome extends StatelessWidget {
                                 ? Colors.black
                                 : Colors.transparent),
                         child: TextButton(
-                            onPressed: () {
-                              // setState(() {
-                              //   index = 1;
-                              //   print(index);
-                              // });
-                              indexNotifier.value = 1;
-                              indexNotifier.notifyListeners();
-                            },
-                            child: const Text(
-                              'Signup',
-                              style: TextStyle(color: Colors.white),
-                            )),
+                          onPressed: () {
+                            indexNotifier.value = 1;
+                            indexNotifier.notifyListeners();
+                          },
+                          child: const Text(
+                            'Signup',
+                            style: TextStyle(color: Colors.white),
+                          ),
+                        ),
                       );
                     },
-                  )
+                  ),
+                  Spacer(),
+                  IconButton(
+                      onPressed: () {
+                        Navigator.of(ctxx).pop();
+                      },
+                      icon: Icon(
+                        Icons.close,
+                        color: Color.fromARGB(255, 207, 20, 6),
+                      ))
                 ],
               ),
               content: ValueListenableBuilder(
@@ -313,7 +315,7 @@ class SignupPopup extends StatelessWidget {
     return Container(
       decoration: const BoxDecoration(),
       child: Container(
-        height: 230,
+        height: 200,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
