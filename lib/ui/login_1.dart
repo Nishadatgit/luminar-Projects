@@ -1,14 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/painting.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class LoginHome extends StatelessWidget {
-  const LoginHome({Key? key}) : super(key: key);
+  LoginHome({Key? key}) : super(key: key);
+
+  final _emailController = TextEditingController();
+  final _passController = TextEditingController();
+  final _semailController = TextEditingController();
+  final _spassController = TextEditingController();
+  final confpassController = TextEditingController();
+
+  ValueNotifier indexNotifier = ValueNotifier(0);
+  int index = 1;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: Colors.black,
       body: Container(
         width: MediaQuery.of(context).size.width,
@@ -58,7 +69,8 @@ class LoginHome extends StatelessWidget {
                           ),
                         ),
                         onPressed: () {
-                          showPopup(context);
+                          indexNotifier.value = 0;
+                          showpopup(context);
                         },
                         child: const Text('Login')),
                   ),
@@ -71,7 +83,10 @@ class LoginHome extends StatelessWidget {
                             borderRadius: BorderRadius.circular(20),
                           ),
                         ),
-                        onPressed: () {},
+                        onPressed: () {
+                          indexNotifier.value = 1;
+                          showpopup(context);
+                        },
                         child: const Text('Signup')),
                   )
                 ],
@@ -115,13 +130,276 @@ class LoginHome extends StatelessWidget {
     );
   }
 
-  showPopup(BuildContext ctx) {
+  Future<dynamic> showpopup(BuildContext context) {
     return showDialog(
-        context: ctx,
+        context: context,
         builder: (ctxx) {
-          return AlertDialog();
+          return AlertDialog(
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20)),
+              backgroundColor: Colors.white.withOpacity(0.1),
+              title: Row(
+                children: [
+                  ValueListenableBuilder(
+                    valueListenable: indexNotifier,
+                    builder: (ctx, newval, _) {
+                      return Container(
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            color: newval == 0
+                                ? Colors.black
+                                : Colors.transparent),
+                        child: TextButton(
+                            onPressed: () {
+                              // setState(() {
+                              //   index = 0;
+                              //   print(index);
+                              // });
+                              indexNotifier.value = 0;
+                              indexNotifier.notifyListeners();
+                            },
+                            child: const Text('Login',
+                                style: TextStyle(color: Colors.white))),
+                      );
+                    },
+                  ),
+                  ValueListenableBuilder(
+                    valueListenable: indexNotifier,
+                    builder: (ctx, newvalue, _) {
+                      return Container(
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            color: newvalue == 1
+                                ? Colors.black
+                                : Colors.transparent),
+                        child: TextButton(
+                            onPressed: () {
+                              // setState(() {
+                              //   index = 1;
+                              //   print(index);
+                              // });
+                              indexNotifier.value = 1;
+                              indexNotifier.notifyListeners();
+                            },
+                            child: const Text(
+                              'Signup',
+                              style: TextStyle(color: Colors.white),
+                            )),
+                      );
+                    },
+                  )
+                ],
+              ),
+              content: ValueListenableBuilder(
+                valueListenable: indexNotifier,
+                builder: (BuildContext ctx, dynamic newval, Widget? _) {
+                  return newval == 0
+                      ? LoginPopup(
+                          emailController: _emailController,
+                          passController: _passController)
+                      : SignupPopup(
+                          emailController: _semailController,
+                          passController: _spassController,
+                          confpassController: confpassController,
+                        );
+                },
+                // child: index == 0
+              ));
         });
   }
 }
 
-//aniatedswitcher
+class LoginPopup extends StatelessWidget {
+  const LoginPopup({
+    Key? key,
+    required TextEditingController emailController,
+    required TextEditingController passController,
+  })  : _emailController = emailController,
+        _passController = passController,
+        super(key: key);
+
+  final TextEditingController _emailController;
+  final TextEditingController _passController;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 200,
+      decoration: const BoxDecoration(),
+      child: Container(
+        height: 200,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            Container(
+              padding: const EdgeInsets.only(left: 10),
+              alignment: Alignment.center,
+              decoration: BoxDecoration(
+                  color: Colors.white, borderRadius: BorderRadius.circular(10)),
+              height: 40,
+              child: TextFormField(
+                textAlignVertical: TextAlignVertical.center,
+                controller: _emailController,
+                decoration: InputDecoration(
+                  focusedBorder: InputBorder.none,
+                  enabledBorder: InputBorder.none,
+                  disabledBorder: InputBorder.none,
+                  hintText: 'Enter your Email',
+                  hintStyle: const TextStyle(color: Colors.grey),
+                  isDense: true,
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                ),
+              ),
+            ),
+            Container(
+              padding: const EdgeInsets.only(left: 10),
+              alignment: Alignment.center,
+              height: 40,
+              decoration: BoxDecoration(
+                  color: Colors.white, borderRadius: BorderRadius.circular(10)),
+              child: TextFormField(
+                obscureText: true,
+                controller: _passController,
+                decoration: InputDecoration(
+                  enabledBorder: InputBorder.none,
+                  focusedBorder: InputBorder.none,
+                  disabledBorder: InputBorder.none,
+                  hintText: 'Enter your Password',
+                  hintStyle: const TextStyle(color: Colors.grey),
+                  isDense: true,
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                ),
+              ),
+            ),
+            Container(
+                width: 230,
+                height: 40,
+                decoration: BoxDecoration(
+                    color: Colors.black,
+                    borderRadius: BorderRadius.circular(30)),
+                child: TextButton(
+                    onPressed: () {},
+                    child: const Text(
+                      'Login',
+                      style: TextStyle(color: Colors.white),
+                    )))
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class SignupPopup extends StatelessWidget {
+  const SignupPopup({
+    Key? key,
+    required TextEditingController emailController,
+    required TextEditingController passController,
+    required this.confpassController,
+  })  : _emailController = emailController,
+        _passController = passController,
+        super(key: key);
+
+  final TextEditingController _emailController;
+  final TextEditingController _passController;
+  final TextEditingController confpassController;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: const BoxDecoration(),
+      child: Container(
+        height: 230,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            Container(
+              padding: const EdgeInsets.only(left: 10),
+              alignment: Alignment.center,
+              decoration: BoxDecoration(
+                  color: Colors.white, borderRadius: BorderRadius.circular(10)),
+              height: 40,
+              child: TextFormField(
+                textAlignVertical: TextAlignVertical.center,
+                controller: _emailController,
+                decoration: InputDecoration(
+                  focusedBorder: InputBorder.none,
+                  enabledBorder: InputBorder.none,
+                  disabledBorder: InputBorder.none,
+                  hintText: 'Enter your Name',
+                  hintStyle: const TextStyle(color: Colors.grey),
+                  isDense: true,
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                ),
+              ),
+            ),
+            Container(
+              padding: const EdgeInsets.only(left: 10),
+              alignment: Alignment.center,
+              height: 40,
+              decoration: BoxDecoration(
+                  color: Colors.white, borderRadius: BorderRadius.circular(10)),
+              child: TextFormField(
+                obscureText: true,
+                controller: _passController,
+                decoration: InputDecoration(
+                  enabledBorder: InputBorder.none,
+                  focusedBorder: InputBorder.none,
+                  disabledBorder: InputBorder.none,
+                  hintText: 'Enter your Password',
+                  hintStyle: const TextStyle(color: Colors.grey),
+                  isDense: true,
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                ),
+              ),
+            ),
+            Container(
+              padding: const EdgeInsets.only(left: 10),
+              alignment: Alignment.center,
+              height: 40,
+              decoration: BoxDecoration(
+                  color: Colors.white, borderRadius: BorderRadius.circular(10)),
+              child: TextFormField(
+                obscureText: true,
+                controller: _passController,
+                decoration: InputDecoration(
+                  enabledBorder: InputBorder.none,
+                  focusedBorder: InputBorder.none,
+                  disabledBorder: InputBorder.none,
+                  hintText: 'Confirm your Password',
+                  hintStyle: const TextStyle(color: Colors.grey),
+                  isDense: true,
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                ),
+              ),
+            ),
+            Container(
+                width: 230,
+                height: 40,
+                decoration: BoxDecoration(
+                    color: Colors.black,
+                    borderRadius: BorderRadius.circular(30)),
+                child: TextButton(
+                    onPressed: () {},
+                    child: const Text(
+                      'Signup',
+                      style: TextStyle(color: Colors.white),
+                    )))
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+//animatedswitcher
