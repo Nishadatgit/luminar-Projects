@@ -181,14 +181,15 @@ class LoginHome extends StatelessWidget {
                       );
                     },
                   ),
-                  Spacer(),
+                  const Spacer(),
                   IconButton(
                       onPressed: () {
                         Navigator.of(ctxx).pop();
                       },
-                      icon: Icon(
+                      icon: const Icon(
                         Icons.close,
-                        color: Color.fromARGB(255, 207, 20, 6),
+                        size: 30,
+                        color: Color.fromARGB(255, 181, 38, 27),
                       ))
                 ],
               ),
