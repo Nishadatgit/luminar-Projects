@@ -369,7 +369,7 @@ class SignupPopup extends StatelessWidget {
                   color: Colors.white, borderRadius: BorderRadius.circular(10)),
               child: TextFormField(
                 obscureText: true,
-                controller: _passController,
+                controller: confpassController,
                 decoration: InputDecoration(
                   enabledBorder: InputBorder.none,
                   focusedBorder: InputBorder.none,
