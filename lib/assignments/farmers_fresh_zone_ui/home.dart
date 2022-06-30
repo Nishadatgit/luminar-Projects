@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:google_nav_bar/google_nav_bar.dart';
 
 const Color green = Color.fromARGB(255, 27, 174, 32);
 
@@ -24,25 +25,41 @@ class _FarmersHomeState extends State<FarmersHome> {
   Widget build(BuildContext context) {
     double size = MediaQuery.of(context).size.height;
     return Scaffold(
-      bottomNavigationBar: BottomNavigationBar(
-          elevation: 10,
-          backgroundColor: Colors.grey[200],
-          currentIndex: selectIndex,
-          onTap: (index) {
-            setState(() {
-              selectIndex = index;
-            });
-          },
-          selectedItemColor: green,
-          unselectedItemColor: Colors.grey.withOpacity(0.7),
-          items: const [
-            BottomNavigationBarItem(
-                icon: Icon(FontAwesomeIcons.plantWilt), label: 'Home'),
-            BottomNavigationBarItem(
-                icon: Icon(FontAwesomeIcons.cartShopping), label: 'Cart'),
-            BottomNavigationBarItem(
-                icon: Icon(EvaIcons.person), label: 'Account'),
-          ]),
+      bottomNavigationBar: GNav(
+        onTabChange: (value) {
+          print(value);
+          selectIndex = value;
+        },
+        selectedIndex: selectIndex,
+        tabBorderRadius: 0,
+        iconSize: 20,
+        tabBackgroundGradient:
+            LinearGradient(colors: [Colors.grey[300]!, Colors.grey[200]!]),
+        color: Colors.grey,
+        tabMargin: EdgeInsets.all(0),
+        tabBackgroundColor: Colors.grey[200]!,
+        padding:
+            const EdgeInsets.only(left: 40, bottom: 10, right: 40, top: 10),
+        textSize: 10,
+        tabs: const [
+          GButton(
+            icon: Icons.home,
+            text: 'HOME',
+          ),
+          GButton(
+            icon: FontAwesomeIcons.cartShopping,
+            text: 'CART',
+            iconSize: 17,
+          ),
+          GButton(
+            icon: Icons.person,
+            text: 'PERSON',
+          )
+        ],
+        style: GnavStyle.oldSchool,
+        activeColor: green,
+        duration: const Duration(microseconds: 100),
+      ),
       backgroundColor: Colors.grey[100],
       body: CustomScrollView(
         slivers: [

@@ -65,7 +65,7 @@ class MyApp extends StatelessWidget {
         'profile': (context) => const ProfilePage(),
         'home': (context) => const HomePage()
       },
-      home: LoginHome(),
+      home:const FarmersHome(),
     );
   }
 }
