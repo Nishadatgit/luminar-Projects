@@ -1,3 +1,4 @@
+import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/src/foundation/key.dart';
@@ -135,85 +136,84 @@ class LoginHome extends StatelessWidget {
         context: context,
         builder: (ctxx) {
           return AlertDialog(
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20)),
-              backgroundColor: Colors.white.withOpacity(0.1),
-              title: Row(
-                children: [
-                  ValueListenableBuilder(
-                    valueListenable: indexNotifier,
-                    builder: (ctx, newval, _) {
-                      return Container(
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(20),
-                            color: newval == 0
-                                ? Colors.black
-                                : Colors.transparent),
-                        child: TextButton(
-                            onPressed: () {
-                              indexNotifier.value = 0;
-                              indexNotifier.notifyListeners();
-                            },
-                            child: const Text('Login',
-                                style: TextStyle(color: Colors.white))),
-                      );
-                    },
-                  ),
-                  ValueListenableBuilder(
-                    valueListenable: indexNotifier,
-                    builder: (ctx, newvalue, _) {
-                      return Container(
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(20),
-                            color: newvalue == 1
-                                ? Colors.black
-                                : Colors.transparent),
-                        child: TextButton(
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+            backgroundColor: Colors.white.withOpacity(0.1),
+            title: Row(
+              children: [
+                ValueListenableBuilder(
+                  valueListenable: indexNotifier,
+                  builder: (ctx, newval, _) {
+                    return Container(
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          color:
+                              newval == 0 ? Colors.black : Colors.transparent),
+                      child: TextButton(
                           onPressed: () {
-                            indexNotifier.value = 1;
+                            indexNotifier.value = 0;
                             indexNotifier.notifyListeners();
                           },
-                          child: const Text(
-                            'Signup',
-                            style: TextStyle(color: Colors.white),
-                          ),
+                          child: const Text('Login',
+                              style: TextStyle(color: Colors.white))),
+                    );
+                  },
+                ),
+                ValueListenableBuilder(
+                  valueListenable: indexNotifier,
+                  builder: (ctx, newvalue, _) {
+                    return Container(
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          color: newvalue == 1
+                              ? Colors.black
+                              : Colors.transparent),
+                      child: TextButton(
+                        onPressed: () {
+                          indexNotifier.value = 1;
+                          indexNotifier.notifyListeners();
+                        },
+                        child: const Text(
+                          'Signup',
+                          style: TextStyle(color: Colors.white),
                         ),
-                      );
+                      ),
+                    );
+                  },
+                ),
+                const Spacer(),
+                IconButton(
+                    onPressed: () {
+                      Navigator.of(ctxx).pop();
                     },
-                  ),
-                  const Spacer(),
-                  IconButton(
-                      onPressed: () {
-                        Navigator.of(ctxx).pop();
-                      },
-                      icon: const Icon(
-                        Icons.close,
-                        size: 30,
-                        color: Color.fromARGB(255, 181, 38, 27),
-                      ))
-                ],
-              ),
-              content: ValueListenableBuilder(
-                valueListenable: indexNotifier,
-                builder: (BuildContext ctx, dynamic newval, Widget? _) {
-                  return newval == 0
-                      ? LoginPopup(
-                          emailController: _emailController,
-                          passController: _passController)
-                      : SignupPopup(
-                          emailController: _semailController,
-                          passController: _spassController,
-                          confpassController: confpassController,
-                        );
-                },
-                // child: index == 0
-              ));
+                    icon: const Icon(
+                      Icons.close,
+                      size: 30,
+                      color: Color.fromARGB(255, 181, 38, 27),
+                    ))
+              ],
+            ),
+            content: ValueListenableBuilder(
+              valueListenable: indexNotifier,
+              builder: (BuildContext ctx, dynamic newval, Widget? _) {
+                return newval == 0
+                    ? LoginPopup(
+                        emailController: _emailController,
+                        passController: _passController)
+                    : SignupPopup(
+                        emailController: _semailController,
+                        passController: _spassController,
+                        confpassController: confpassController,
+                      );
+              },
+            ),
+          );
         });
   }
 }
 
 class LoginPopup extends StatelessWidget {
-  const LoginPopup({
+  LoginPopup({
     Key? key,
     required TextEditingController emailController,
     required TextEditingController passController,
@@ -223,77 +223,121 @@ class LoginPopup extends StatelessWidget {
 
   final TextEditingController _emailController;
   final TextEditingController _passController;
+  final _loginKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
     return Container(
       height: 200,
       decoration: const BoxDecoration(),
-      child: Container(
-        height: 200,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            Container(
-              padding: const EdgeInsets.only(left: 10),
-              alignment: Alignment.center,
-              decoration: BoxDecoration(
-                  color: Colors.white, borderRadius: BorderRadius.circular(10)),
-              height: 40,
-              child: TextFormField(
-                textAlignVertical: TextAlignVertical.center,
-                controller: _emailController,
-                decoration: InputDecoration(
-                  focusedBorder: InputBorder.none,
-                  enabledBorder: InputBorder.none,
-                  disabledBorder: InputBorder.none,
-                  hintText: 'Enter your Email',
-                  hintStyle: const TextStyle(color: Colors.grey),
-                  isDense: true,
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10),
+      child: Form(
+        key: _loginKey,
+        child: Container(
+          height: 200,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              Container(
+                padding: const EdgeInsets.only(left: 10),
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(10)),
+                height: 40,
+                child: TextFormField(
+                  // validator: (value) {
+                  //   const email = 'nishad@gmail.com';
+
+                  //   if (value == null || value.isEmpty) {
+                  //     return 'Required field';
+                  //   } else if (EmailValidator.validate(value) == false) {
+                  //     return 'Enter a valid email ';
+                  //   } else if (value != email) {
+                  //     return "No account was found with email '$value'";
+                  //   }
+
+                  //   return null;
+                  // },
+                  textAlignVertical: TextAlignVertical.center,
+                  controller: _emailController,
+                  decoration: InputDecoration(
+                    focusedBorder: InputBorder.none,
+                    errorBorder: InputBorder.none,
+                    floatingLabelAlignment: FloatingLabelAlignment.start,
+                    focusedErrorBorder: InputBorder.none,
+                    enabledBorder: InputBorder.none,
+                    disabledBorder: InputBorder.none,
+                    hintText: 'Enter your Email',
+                    hintStyle: const TextStyle(color: Colors.grey),
+                    isDense: true,
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
                   ),
                 ),
               ),
-            ),
-            Container(
-              padding: const EdgeInsets.only(left: 10),
-              alignment: Alignment.center,
-              height: 40,
-              decoration: BoxDecoration(
-                  color: Colors.white, borderRadius: BorderRadius.circular(10)),
-              child: TextFormField(
-                obscureText: true,
-                controller: _passController,
-                decoration: InputDecoration(
-                  enabledBorder: InputBorder.none,
-                  focusedBorder: InputBorder.none,
-                  disabledBorder: InputBorder.none,
-                  hintText: 'Enter your Password',
-                  hintStyle: const TextStyle(color: Colors.grey),
-                  isDense: true,
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10),
+              Container(
+                padding: const EdgeInsets.only(left: 10),
+                alignment: Alignment.center,
+                height: 40,
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(10)),
+                child: TextFormField(
+                  // validator: (value) {
+                  //   if (value == null || value.isEmpty) {
+                  //     return 'Required field';
+                  //   } else if (value.length < 4) {
+                  //     return 'Password must contain minumum 4 characters';
+                  //   }
+                  //   return null;
+                  // },
+                  obscureText: true,
+                  controller: _passController,
+                  decoration: InputDecoration(
+                    enabledBorder: InputBorder.none,
+                    focusedErrorBorder: InputBorder.none,
+                    errorBorder: InputBorder.none,
+                    focusedBorder: InputBorder.none,
+                    disabledBorder: InputBorder.none,
+                    hintText: 'Enter your Password',
+                    hintStyle: const TextStyle(color: Colors.grey),
+                    isDense: true,
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
                   ),
                 ),
               ),
-            ),
-            Container(
+              Container(
                 width: 230,
                 height: 40,
                 decoration: BoxDecoration(
                     color: Colors.black,
                     borderRadius: BorderRadius.circular(30)),
                 child: TextButton(
-                    onPressed: () {},
-                    child: const Text(
-                      'Login',
-                      style: TextStyle(color: Colors.white),
-                    )))
-          ],
+                  onPressed: () {
+                    _checkLoinForm();
+                  },
+                  child: const Text(
+                    'Login',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );
+  }
+
+  bool _checkLoinForm() {
+    if (_loginKey.currentState!.validate()) {
+      return true;
+    } else {
+      return false;
+    }
   }
 }
 
