@@ -161,7 +161,7 @@ class MyCard extends StatelessWidget {
                 border: Border.all(color: Colors.grey[300]!, width: 1)),
           ),
           Container(
-            color: pColor,
+            color: pColor.withOpacity(0.8),
             width: MediaQuery.of(context).size.width * 0.24,
             height: MediaQuery.of(context).size.height * 0.090,
           ),
