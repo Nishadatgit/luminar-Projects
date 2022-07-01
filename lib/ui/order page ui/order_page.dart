@@ -13,8 +13,12 @@ class OrderPage extends StatelessWidget {
         leading: const Icon(
           Icons.arrow_back,
           color: Colors.white,
+          size: 18,
         ),
-        title: const Text('Order details'),
+        title: const Text(
+          'Order Details',
+          style: TextStyle(fontSize: 17),
+        ),
       ),
       body: SingleChildScrollView(
         child: Container(
@@ -46,7 +50,7 @@ class OrderPage extends StatelessWidget {
               const NeedSupport(),
               Container(
                 margin: EdgeInsets.only(
-                    top: MediaQuery.of(context).padding.top * 1.29),
+                    top: MediaQuery.of(context).padding.top * 1.6),
                 width: MediaQuery.of(context).size.width * 0.9,
                 decoration: BoxDecoration(
                     color: Color.fromARGB(255, 246, 222, 6),
@@ -77,9 +81,9 @@ class NeedSupport extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.only(left: 10, top: 10, bottom: 10),
       decoration: const BoxDecoration(
-          color: Color.fromARGB(255, 241, 227, 106),
+          color: Color.fromARGB(255, 245, 239, 180),
           borderRadius: BorderRadius.all(Radius.circular(15))),
-      height: MediaQuery.of(context).size.height * 0.080,
+      height: MediaQuery.of(context).size.height * 0.066,
       child: Row(
         children: [
           const Icon(
