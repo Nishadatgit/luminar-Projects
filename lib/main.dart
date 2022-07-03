@@ -11,6 +11,7 @@ import 'package:demo_project/assignments/grid_view/grid_view.dart';
 import 'package:demo_project/assignments/gridview%20custom/extended_grid.dart';
 import 'package:demo_project/assignments/gridview%20custom/staggered2.dart';
 import 'package:demo_project/assignments/login_iu_custom_textfields.dart';
+import 'package:demo_project/assignments/profile%20ui/profile.dart';
 import 'package:demo_project/assignments/registration_form/login.dart';
 import 'package:demo_project/assignments/registration_form/signup.dart';
 import 'package:demo_project/assignments/custom_appbar.dart';
@@ -68,9 +69,7 @@ class MyApp extends StatelessWidget {
         'profile': (context) => const ProfilePage(),
         'home': (context) => const HomePage()
       },
-      home: const DLFUi(
-        
-      ),
+      home: const ProfileUi(),
     );
   }
 }

@@ -148,8 +148,8 @@ class DLFUi extends StatelessWidget {
                 padding: const EdgeInsets.all(20),
                 child: GridView.builder(
                     shrinkWrap: true,
-                    itemCount: 9,
-                    padding: const EdgeInsets.all(0),
+                    itemCount: 6,
+                    padding: const EdgeInsets.all(8),
                     gridDelegate:
                         const SliverGridDelegateWithFixedCrossAxisCount(
                             mainAxisSpacing: 15,
