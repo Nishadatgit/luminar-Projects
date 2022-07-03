@@ -53,47 +53,43 @@ class DLFUi extends StatelessWidget {
             bottom: AppBar(
               elevation: 0,
               backgroundColor: Colors.white,
-              title: Container(
-                alignment: Alignment.center,
-                margin: const EdgeInsets.symmetric(horizontal: 10),
-                padding: const EdgeInsets.symmetric(horizontal: 10),
-                height: 40,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: const BorderRadius.all(
-                    Radius.circular(20),
+              title: Material(
+                elevation: 10,
+                borderRadius: BorderRadius.circular(20),
+                child: Container(
+                  alignment: Alignment.center,
+                  margin: const EdgeInsets.symmetric(horizontal: 10),
+                  padding: const EdgeInsets.symmetric(horizontal: 10),
+                  height: 40,
+                  decoration: const BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(20),
+                    ),
                   ),
-                  boxShadow: [
-                    BoxShadow(
-                      blurRadius: 30,
-                      spreadRadius: 1,
-                      color: Colors.grey.withOpacity(0.3),
-                      offset: const Offset(0, 10),
-                    ),
-                  ],
-                ),
-                child: Row(
-                  children: const [
-                    Icon(
-                      Icons.search,
-                      color: pColor,
-                    ),
-                    SizedBox(
-                      width: 5,
-                    ),
-                    Expanded(
-                      child: TextField(
-                        decoration: InputDecoration(
-                          enabledBorder: InputBorder.none,
-                          focusedBorder: InputBorder.none,
-                          hintText: 'Search for products,ingredients',
-                          hintStyle: TextStyle(
-                            color: Colors.grey,
+                  child: Row(
+                    children: const [
+                      Icon(
+                        Icons.search,
+                        color: pColor,
+                      ),
+                      SizedBox(
+                        width: 5,
+                      ),
+                      Expanded(
+                        child: TextField(
+                          decoration: InputDecoration(
+                            enabledBorder: InputBorder.none,
+                            focusedBorder: InputBorder.none,
+                            hintText: 'Search for products,ingredients',
+                            hintStyle: TextStyle(
+                              color: Colors.grey,
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
             ),
@@ -147,10 +143,12 @@ class DLFUi extends StatelessWidget {
                 ),
               ),
               Container(
+                margin: const EdgeInsets.all(10),
+                color: Colors.white,
                 padding: const EdgeInsets.all(20),
                 child: GridView.builder(
                     shrinkWrap: true,
-                    itemCount: 6,
+                    itemCount: 9,
                     padding: const EdgeInsets.all(0),
                     gridDelegate:
                         const SliverGridDelegateWithFixedCrossAxisCount(
@@ -158,31 +156,34 @@ class DLFUi extends StatelessWidget {
                             crossAxisSpacing: 15,
                             crossAxisCount: 3),
                     itemBuilder: (ctx, index) {
-                      return Container(
-                        decoration: BoxDecoration(
-                          border:
-                              Border.all(color: Colors.grey[200]!, width: 3),
-                          borderRadius: const BorderRadius.all(
-                            Radius.circular(15),
+                      return Material(
+                        borderRadius: BorderRadius.circular(15),
+                        elevation: 10,
+                        child: Container(
+                          decoration: const BoxDecoration(
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(15),
+                            ),
                           ),
-                        ),
-                        height: 100,
-                        width: 100,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            Container(
-                              height: 70,
-                              width: 60,
-                              decoration: const BoxDecoration(
-                                image: DecorationImage(
-                                  fit: BoxFit.fitHeight,
-                                  image: AssetImage('assets/images/candy.jpg'),
+                          height: 100,
+                          width: 100,
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              Container(
+                                height: 70,
+                                width: 60,
+                                decoration: const BoxDecoration(
+                                  image: DecorationImage(
+                                    fit: BoxFit.fitHeight,
+                                    image:
+                                        AssetImage('assets/images/candy.jpg'),
+                                  ),
                                 ),
                               ),
-                            ),
-                            const Text('Heart Health')
-                          ],
+                              const Text('Heart Health')
+                            ],
+                          ),
                         ),
                       );
                     }),
