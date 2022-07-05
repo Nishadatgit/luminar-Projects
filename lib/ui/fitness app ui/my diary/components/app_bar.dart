@@ -9,7 +9,7 @@ PreferredSize appBar() {
       stretch: true,
       floating: true,
       elevation: 0,
-      backgroundColor: Colors.grey[200],
+      backgroundColor: Colors.grey[100],
       actions: [
         Container(
           margin: const EdgeInsets.only(right: 30, top: 20),
