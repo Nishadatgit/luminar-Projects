@@ -42,6 +42,7 @@ import 'package:demo_project/tab_bars.dart';
 import 'package:demo_project/text_field.dart';
 import 'package:demo_project/ui/DLF%20ui/dlf_ui.dart';
 import 'package:demo_project/ui/category%20ui/category_page.dart';
+import 'package:demo_project/ui/fitness%20app%20ui/my%20diary/home/fitness_home.dart';
 import 'package:demo_project/ui/login%20ui/login_1.dart';
 import 'package:demo_project/ui/order%20page%20ui/order_page.dart';
 import 'package:demo_project/validation_form.dart';
@@ -69,7 +70,7 @@ class MyApp extends StatelessWidget {
         'profile': (context) => const ProfilePage(),
         'home': (context) => const HomePage()
       },
-      home: const ProfileUi(),
+      home: const FitnessUiHome(),
     );
   }
 }

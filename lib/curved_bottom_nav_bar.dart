@@ -38,6 +38,7 @@ class _MyCurvedBottomNavState extends State<MyCurvedBottomNav> {
           onTap: (index) {
             setState(() {
               selectedIndex = index;
+              print(index);
             });
           },
           height: 50,
