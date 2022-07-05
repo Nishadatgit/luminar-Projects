@@ -44,8 +44,8 @@ class MealsToday extends StatelessWidget {
               threeFood: 'Samosa,\nPazhampori,\nTea',
             ),
             StackCurved(
-              pColor: Color.fromARGB(255, 35, 237, 126),
-              sColor: Color.fromARGB(255, 139, 238, 189),
+              pColor: Color.fromARGB(255, 237, 119, 35),
+              sColor: Color.fromARGB(255, 243, 177, 133),
               img: 'dinner',
               cal: '574',
               type: 'Dinner',
