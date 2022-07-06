@@ -118,6 +118,13 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_awesome_alert_box:
+    dependency: "direct main"
+    description:
+      name: flutter_awesome_alert_box
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.1.1"
   flutter_lints:
     dependency: "direct dev"
     description:
@@ -125,6 +132,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.1"
+  flutter_rating_bar:
+    dependency: "direct main"
+    description:
+      name: flutter_rating_bar
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "4.0.1"
   flutter_staggered_grid_view:
     dependency: "direct main"
     description:
@@ -359,6 +373,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.0.7"
+  rflutter_alert:
+    dependency: "direct main"
+    description:
+      name: rflutter_alert
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.0.4"
   scroll_to_index:
     dependency: transitive
     description:

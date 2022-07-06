@@ -14,7 +14,7 @@ PreferredSize appBar() {
           bottomLeft: Radius.circular(30),
         ),
       ),
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.grey[100],
       actions: [
         Container(
           margin: const EdgeInsets.only(right: 30, top: 20, bottom: 20),
@@ -22,17 +22,14 @@ PreferredSize appBar() {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: const [
               Padding(
-                padding: EdgeInsets.only(right: 10),
+                padding: EdgeInsets.only(right: 8),
                 child: Icon(
                   Icons.arrow_back_ios,
                   color: Colors.black,
                   size: 15,
                 ),
               ),
-              Icon(
-                Icons.calendar_month,
-                color: Colors.black,
-              ),
+              Icon(Icons.calendar_month, color: Colors.black, size: 15),
               Text(
                 '15 May',
                 style: TextStyle(color: Colors.black),
@@ -51,8 +48,10 @@ PreferredSize appBar() {
       ],
       title: const Padding(
         padding: EdgeInsets.only(top: 20.0, bottom: 20),
-        child: Text('My Diary',
-            style: TextStyle(color: Colors.black, fontSize: 27)),
+        child: Text(
+          'My Diary',
+          style: TextStyle(color: Colors.black, fontSize: 27),
+        ),
       ),
     ),
   );
