@@ -15,17 +15,17 @@ class HotelCardsArea extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: const [
           HotelCard(
-            color: Colors.red,
+            color: Color.fromARGB(255, 222, 94, 85),
             text: 'Hotel',
             icon: Icons.bed,
           ),
           HotelCard(
-            color: Colors.blue,
+            color: Color.fromARGB(255, 69, 155, 226),
             text: 'Restaurant',
             icon: Icons.bed,
           ),
           HotelCard(
-            color: Colors.orange,
+            color: Color.fromARGB(255, 231, 163, 62),
             text: 'Cafe',
             icon: Icons.coffee,
           ),

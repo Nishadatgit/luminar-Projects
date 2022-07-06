@@ -28,6 +28,7 @@ environment:
 # versions available, run `flutter pub outdated`.
 dependencies:
   accordion: ^2.4.0
+  auto_size_text: ^3.0.0
   cupertino_icons: ^1.0.2
   curved_navigation_bar: ^1.0.3
   email_validator: ^2.0.1

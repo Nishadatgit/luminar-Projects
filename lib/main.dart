@@ -74,7 +74,7 @@ class MyApp extends StatelessWidget {
         'profile': (context) => const ProfilePage(),
         'home': (context) => const HomePage()
       },
-      home: const HotelHome(),
+      home: const RoomMainPage(),
     );
   }
 }

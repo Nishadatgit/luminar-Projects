@@ -8,7 +8,7 @@ class HotelAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SliverAppBar(
-      backgroundColor: const Color.fromARGB(255, 37, 186, 194),
+      backgroundColor: const Color.fromARGB(255, 34, 171, 178),
       leading: const Icon(Icons.menu),
       elevation: 0,
       actions: [
