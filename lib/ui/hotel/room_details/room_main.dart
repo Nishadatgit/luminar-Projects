@@ -8,7 +8,7 @@ import 'components/description.dart';
 import 'components/image_stack.dart';
 import 'components/rating_and_price.dart';
 
-class RoomMainPage extends StatelessWidget {
+class RoomMainPage extends StatefulWidget {
   const RoomMainPage({Key? key}) : super(key: key);
 
   static const String description =
@@ -17,17 +17,23 @@ class RoomMainPage extends StatelessWidget {
   static const Color pColor = Color.fromARGB(255, 49, 20, 168);
 
   @override
+  State<RoomMainPage> createState() => _RoomMainPageState();
+}
+
+class _RoomMainPageState extends State<RoomMainPage> {
+  int currentIndex = 0;
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
       body: ListView(
         padding: const EdgeInsets.all(0),
         children: [
-           ImageStack(),
+          ImageStack(),
           Column(
             children: [
-              const RatingAndPrice(pColor: pColor),
-              const BookNowButton(pColor: pColor),
+              const RatingAndPrice(pColor: RoomMainPage.pColor),
+              const BookNowButton(pColor: RoomMainPage.pColor),
               const SizedBox(
                 height: 20,
               ),
@@ -43,11 +49,26 @@ class RoomMainPage extends StatelessWidget {
                   ),
                 ],
               ),
-             const Description(description: description)
+              const Description(description: RoomMainPage.description)
             ],
           ),
         ],
       ),
+      bottomNavigationBar: BottomNavigationBar(
+          currentIndex: currentIndex,
+          onTap: (index) {
+            setState(() {
+              currentIndex = index;
+            });
+          },
+          selectedItemColor: Colors.black,
+          items: const [
+            BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Serach'),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.favorite_rounded), label: 'Favorites'),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.settings), label: 'Settings')
+          ]),
     );
   }
 }
