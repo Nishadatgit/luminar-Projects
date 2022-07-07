@@ -73,12 +73,11 @@ class _BookingHomeState extends State<BookingHome> {
             currentIndex = index;
           });
         },
-        selectedItemColor: Colors.black,
+        selectedItemColor: Colors.purple,
         items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Serach'),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.favorite_rounded), label: 'Favorites'),
-          BottomNavigationBarItem(icon: Icon(Icons.settings), label: 'Settings')
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+          BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Explore'),
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile')
         ]);
   }
 }
