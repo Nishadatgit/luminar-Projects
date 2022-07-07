@@ -44,6 +44,7 @@ import 'package:demo_project/text_field.dart';
 import 'package:demo_project/ui/DLF%20ui/dlf_ui.dart';
 import 'package:demo_project/ui/category%20ui/category_page.dart';
 import 'package:demo_project/ui/fitness%20app%20ui/my%20diary/home/fitness_home.dart';
+import 'package:demo_project/ui/hotel/booking/booking_home.dart';
 import 'package:demo_project/ui/hotel/home/hotel_home.dart';
 import 'package:demo_project/ui/hotel/room_details/room_main.dart';
 import 'package:demo_project/ui/login%20ui/login_1.dart';
@@ -74,7 +75,7 @@ class MyApp extends StatelessWidget {
         'profile': (context) => const ProfilePage(),
         'home': (context) => const HomePage()
       },
-      home: const RoomMainPage(),
+      home: const BookingHome(),
     );
   }
 }

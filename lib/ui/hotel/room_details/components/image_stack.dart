@@ -17,7 +17,7 @@ class ImageStack extends StatelessWidget {
             image: DecorationImage(
               opacity: 0.8,
               fit: BoxFit.cover,
-              image: AssetImage('assets/images/room.jpg'),
+              image: AssetImage('assets/images/room1.jpg'),
             ),
           ),
           height: MediaQuery.of(context).size.height * 0.47,
