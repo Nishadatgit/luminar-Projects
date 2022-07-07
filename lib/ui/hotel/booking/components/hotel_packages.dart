@@ -29,7 +29,10 @@ class HotelPackageTitle extends StatelessWidget {
 
 class HotelPackagesCard extends StatelessWidget {
   const HotelPackagesCard({
-    Key? key, required this.image, required this.name, required this.rate,
+    Key? key,
+    required this.image,
+    required this.name,
+    required this.rate,
   }) : super(key: key);
   final String image;
   final String name;
@@ -38,7 +41,7 @@ class HotelPackagesCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 10, right: 20, left: 20),
+      padding: const EdgeInsets.only(top: 20, right: 20, left: 20),
       child: Material(
         borderRadius: BorderRadius.circular(10),
         elevation: 5,

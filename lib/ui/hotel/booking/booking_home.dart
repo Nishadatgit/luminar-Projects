@@ -73,6 +73,8 @@ class _BookingHomeState extends State<BookingHome> {
             currentIndex = index;
           });
         },
+        elevation: 0,
+        backgroundColor: Colors.grey[100],
         selectedItemColor: Colors.purple,
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
