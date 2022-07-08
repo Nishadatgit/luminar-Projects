@@ -9,6 +9,7 @@ import 'package:liquid_progress_indicator/liquid_progress_indicator.dart';
 import '../components/body_measurement.dart';
 import '../components/title_area.dart';
 import '../components/water.dart';
+import '../components/water_glass.dart';
 
 class FitnessUiHome extends StatefulWidget {
   const FitnessUiHome({Key? key}) : super(key: key);
@@ -18,17 +19,38 @@ class FitnessUiHome extends StatefulWidget {
 }
 
 class _FitnessUiHomeState extends State<FitnessUiHome> {
+  final ScrollController myscrollController = ScrollController();
+  Color appbarColor = Colors.grey[200]!;
   int selectedindex = 0;
-
+  double fontsize = 27;
   @override
+  void initState() {
+    myscrollController.addListener(() {
+      if (myscrollController.offset >= 54) {
+        setState(() {
+          appbarColor = Colors.white;
+          fontsize = 20;
+        });
+      } else if (myscrollController.offset <= 54 &&
+          myscrollController.offset >= 0) {
+        setState(() {
+          appbarColor = Colors.grey[200]!;
+          fontsize = 27;
+        });
+      }
+    });
+
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[100],
+      backgroundColor: Colors.grey[200]!,
       body: CustomScrollView(
-        physics: const BouncingScrollPhysics(),
+        controller: myscrollController,
         slivers: [
-          appBar(),
+          appBar(appbarColor, fontsize),
           SliverList(
             delegate: SliverChildListDelegate([
               const TitleArea(
@@ -44,7 +66,8 @@ class _FitnessUiHomeState extends State<FitnessUiHome> {
               const TitleArea(title: 'Body Measurement', btnTitle: 'Today'),
               const BodyMeasurement(),
               const TitleArea(title: 'Water', btnTitle: 'AquaSmartBottle'),
-              const Water()
+              const Water(),
+              const WaterGlass()
             ]),
           )
         ],
@@ -60,7 +83,9 @@ class _FitnessUiHomeState extends State<FitnessUiHome> {
           ]),
         ),
         child: IconButton(
-            onPressed: () {},
+            onPressed: () {
+              setState(() {});
+            },
             icon: const Icon(
               Icons.add,
               size: 25,
@@ -74,7 +99,9 @@ class _FitnessUiHomeState extends State<FitnessUiHome> {
         activeColor: const Color.fromARGB(255, 7, 81, 142),
         gapLocation: GapLocation.center,
         shadow: Shadow(
-            color: Colors.grey[200]!, offset: Offset(0, -5), blurRadius: 10),
+            color: Colors.grey[200]!,
+            offset: const Offset(0, -5),
+            blurRadius: 10),
         inactiveColor: Colors.grey[600],
         notchSmoothness: NotchSmoothness.sharpEdge,
         onTap: (index) {

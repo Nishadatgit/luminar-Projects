@@ -77,34 +77,16 @@ class StackCurved extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        Padding(
-          padding: const EdgeInsets.only(top: 25.0),
-          child: CurvedCard(
-            threeFood: threeFood,
-            type: type,
-            cal: cal,
-            color1: pColor,
-            color2: sColor,
-          ),
-        ),
-        Positioned(
-          top: 0,
-          left: 20,
-          child: SizedBox(
-            height: 70,
-            width: 70,
-            child: CircleAvatar(
-              backgroundColor: Colors.white.withOpacity(0.3),
-              child: Padding(
-                padding: const EdgeInsets.all(4.0),
-                child: Image.asset('assets/png/fitness_app/$img.png'),
-              ),
-            ),
-          ),
-        )
-      ],
+    return Padding(
+      padding: const EdgeInsets.only(top: 25.0),
+      child: CurvedCard(
+        img: img,
+        threeFood: threeFood,
+        type: type,
+        cal: cal,
+        color1: pColor,
+        color2: sColor,
+      ),
     );
   }
 }
@@ -117,19 +99,24 @@ class CurvedCard extends StatelessWidget {
     required this.cal,
     required this.type,
     required this.threeFood,
+    required this.img,
   }) : super(key: key);
   final Color color1;
   final Color color2;
   final String cal;
   final String type;
+  final String img;
   final String threeFood;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(left: 10, right: 10),
+      margin: const EdgeInsets.only(left: 10, right: 10, bottom: 10),
       decoration: BoxDecoration(
         gradient: LinearGradient(colors: [color1, color2]),
+        boxShadow: [
+          BoxShadow(color: color1, offset: const Offset(0, 3), blurRadius: 10)
+        ],
         borderRadius: const BorderRadius.only(
             bottomLeft: Radius.circular(10),
             bottomRight: Radius.circular(10),
@@ -138,55 +125,75 @@ class CurvedCard extends StatelessWidget {
       ),
       height: 170,
       width: 110,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
+      child: Stack(
+        clipBehavior: Clip.none,
         children: [
-          Padding(
-            padding: const EdgeInsets.only(top: 50.0, left: 10),
-            child: Text(
-              type,
-              style: const TextStyle(
-                  color: Colors.white,
-                  fontSize: 17,
-                  fontWeight: FontWeight.bold),
-            ),
-          ),
-          const SizedBox(
-            height: 5,
-          ),
-          Padding(
-            padding: const EdgeInsets.only(left: 10.0),
-            child: Text(
-              threeFood,
-              style: const TextStyle(
-                  color: Colors.white,
-                  fontSize: 12,
-                  fontWeight: FontWeight.w400),
-            ),
-          ),
-          const SizedBox(
-            height: 20,
-          ),
-          Padding(
-            padding: const EdgeInsets.only(left: 20.0),
-            child: Wrap(spacing: 3, children: [
-              Text(
-                cal,
-                style: const TextStyle(
-                    fontSize: 20,
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold),
-              ),
-              const Padding(
-                padding: EdgeInsets.only(top: 5.0),
-                child: Text(
-                  'kcal',
-                  style: TextStyle(color: Colors.white),
+          Positioned(
+            top: -30,
+            left: 10,
+            child: SizedBox(
+              height: 70,
+              width: 70,
+              child: CircleAvatar(
+                backgroundColor: Colors.white.withOpacity(0.3),
+                child: Padding(
+                  padding: const EdgeInsets.all(4.0),
+                  child: Image.asset('assets/png/fitness_app/$img.png'),
                 ),
+              ),
+            ),
+          ),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(top: 50.0, left: 10),
+                child: Text(
+                  type,
+                  style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 17,
+                      fontWeight: FontWeight.bold),
+                ),
+              ),
+              const SizedBox(
+                height: 5,
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 10.0),
+                child: Text(
+                  threeFood,
+                  style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 12,
+                      fontWeight: FontWeight.w400),
+                ),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 20.0),
+                child: Wrap(spacing: 3, children: [
+                  Text(
+                    cal,
+                    style: const TextStyle(
+                        fontSize: 20,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold),
+                  ),
+                  const Padding(
+                    padding: EdgeInsets.only(top: 5.0),
+                    child: Text(
+                      'kcal',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  )
+                ]),
               )
-            ]),
-          )
+            ],
+          ),
         ],
       ),
     );

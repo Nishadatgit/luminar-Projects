@@ -250,6 +250,7 @@ class DietContainer extends StatelessWidget {
                 radius: 50,
                 maskFilter: const MaskFilter.blur(BlurStyle.solid, 5),
                 lineWidth: 12,
+                restartAnimation: true,
                 linearGradient: const LinearGradient(colors: [
                   Color.fromARGB(255, 156, 156, 243),
                   Color.fromARGB(255, 13, 10, 185)
@@ -259,7 +260,7 @@ class DietContainer extends StatelessWidget {
                 backgroundWidth: 3,
                 animationDuration: 2000,
                 percent: 0.5,
-                rotateLinearGradient: true,
+                rotateLinearGradient: false,
                 center: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: const [

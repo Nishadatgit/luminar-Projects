@@ -11,7 +11,6 @@ class Water extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(left: 20.0, right: 20, top: 5),
       child: Material(
-        elevation: 5,
         borderRadius: const BorderRadius.only(
           topLeft: Radius.circular(10),
           bottomLeft: Radius.circular(10),

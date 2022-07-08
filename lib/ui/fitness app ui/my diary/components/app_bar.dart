@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-PreferredSize appBar() {
+PreferredSize appBar(Color color,double fontsize) {
   return PreferredSize(
     preferredSize: const Size.fromHeight(80),
     child: SliverAppBar(
@@ -14,7 +14,7 @@ PreferredSize appBar() {
           bottomLeft: Radius.circular(30),
         ),
       ),
-      backgroundColor: Colors.grey[100],
+      backgroundColor: color,
       actions: [
         Container(
           margin: const EdgeInsets.only(right: 30, top: 20, bottom: 20),
@@ -46,11 +46,11 @@ PreferredSize appBar() {
           ),
         ),
       ],
-      title: const Padding(
-        padding: EdgeInsets.only(top: 20.0, bottom: 20),
+      title:  Padding(
+        padding:const EdgeInsets.only(top: 20.0, bottom: 20),
         child: Text(
           'My Diary',
-          style: TextStyle(color: Colors.black, fontSize: 27),
+          style: TextStyle(color: Colors.black, fontSize: fontsize),
         ),
       ),
     ),

@@ -10,7 +10,6 @@ class BodyMeasurement extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(left: 20.0, right: 20, top: 5),
       child: Material(
-        elevation: 5,
         borderRadius: const BorderRadius.only(
           topLeft: Radius.circular(10),
           bottomLeft: Radius.circular(10),
@@ -166,11 +165,24 @@ class BodyMeasurement extends StatelessWidget {
                             size: 18,
                           ),
                           const SizedBox(
-                            width: 10,
+                            width: 5,
                           ),
                           Text(
                             'Today 8.26 am',
                             style: TextStyle(color: Colors.grey[700]),
+                          )
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 3,
+                      ),
+                      Row(
+                        children: const [
+                          Text(
+                            'In body smart scale',
+                            style: TextStyle(
+                                color: Color.fromARGB(255, 9, 41, 155),
+                                fontWeight: FontWeight.bold),
                           )
                         ],
                       )

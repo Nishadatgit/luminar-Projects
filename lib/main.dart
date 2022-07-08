@@ -1,6 +1,7 @@
 import 'package:demo_project/accordion.dart';
 import 'package:demo_project/alert%20and%20menu/alert_menu_inbuilt.dart';
 import 'package:demo_project/alert_dialog.dart';
+import 'package:demo_project/animatedlist.dart';
 import 'package:demo_project/animations.dart';
 import 'package:demo_project/app_bars/fixed_app_bar_with_search.dart';
 import 'package:demo_project/assignments/bottom_sheet/bottom_sheet.dart';
@@ -76,7 +77,6 @@ class MyApp extends StatelessWidget {
         'home': (context) => const HomePage()
       },
       home: const FitnessUiHome(),
-      
     );
   }
 }
