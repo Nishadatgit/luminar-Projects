@@ -38,6 +38,8 @@ import 'package:demo_project/named_routers/settings.dart';
 //import 'package:demo_project/onboarding/onboarding.dart';
 //import 'package:demo_project/onboarding/onborading2.dart';
 import 'package:demo_project/one_ui_phone.dart';
+import 'package:demo_project/phone%20and%20sms/flutter_sms_eg.dart';
+import 'package:demo_project/phone%20and%20sms/telephony_eg.dart';
 import 'package:demo_project/splash_screen.dart';
 import 'package:demo_project/staggered_gridview.dart';
 import 'package:demo_project/tab_bars.dart';
@@ -76,7 +78,7 @@ class MyApp extends StatelessWidget {
         'profile': (context) => const ProfilePage(),
         'home': (context) => const HomePage()
       },
-      home: const FitnessUiHome(),
+      home: const FlutterSmsEg(),
     );
   }
 }
