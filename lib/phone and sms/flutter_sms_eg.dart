@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter_sms/flutter_sms.dart';
 
 class FlutterSmsEg extends StatelessWidget {
   const FlutterSmsEg({Key? key}) : super(key: key);
@@ -17,13 +18,19 @@ class FlutterSmsEg extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () async {
+                String message = 'hello';
+                List<String> recp = ['989765', '7886656'];
+
+                final result = await sendSMS(
+                        message: message, recipients: recp, sendDirect: false)
+                    .catchError((onError) {
+                  print(onError);
+                });
+                print(result);
+              },
               child: const Text('Send a sms using flutter sms'),
             ),
-            ElevatedButton(
-              onPressed: () {},
-              child: const Text('open dialer using flutter sms'),
-            )
           ],
         ),
       ),
