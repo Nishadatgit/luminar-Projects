@@ -51,6 +51,7 @@ import 'package:demo_project/ui/hotel/booking/booking_home.dart';
 import 'package:demo_project/ui/hotel/home/hotel_home.dart';
 import 'package:demo_project/ui/hotel/room_details/room_main.dart';
 import 'package:demo_project/ui/login%20ui/login_1.dart';
+import 'package:demo_project/ui/mausam%20ui/mausam_home.dart';
 import 'package:demo_project/ui/order%20page%20ui/order_page.dart';
 import 'package:demo_project/validation_form.dart';
 import 'package:flutter/material.dart';
@@ -78,7 +79,7 @@ class MyApp extends StatelessWidget {
         'profile': (context) => const ProfilePage(),
         'home': (context) => const HomePage()
       },
-      home: const FlutterSmsEg(),
+      home: const MausamHome(),
     );
   }
 }
