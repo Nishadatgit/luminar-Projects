@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 
 class ImageStack extends StatelessWidget {
   ImageStack({
-    Key? key,
+    Key? key, required this.room,
   }) : super(key: key);
   final selected = ValueNotifier(false);
+  final String room;
 
   @override
   Widget build(BuildContext context) {
@@ -12,12 +13,12 @@ class ImageStack extends StatelessWidget {
       alignment: Alignment.topCenter,
       children: [
         Container(
-          decoration: const BoxDecoration(
+          decoration: BoxDecoration(
             color: Colors.black,
             image: DecorationImage(
               opacity: 0.8,
               fit: BoxFit.cover,
-              image: AssetImage('assets/images/room1.jpg'),
+              image: AssetImage('assets/images/$room.jpg'),
             ),
           ),
           height: MediaQuery.of(context).size.height * 0.47,

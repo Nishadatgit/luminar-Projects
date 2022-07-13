@@ -1,4 +1,5 @@
 import 'package:demo_project/ui/hotel/home/components/room_details_with_rating.dart';
+import 'package:demo_project/ui/hotel/room_details/room_main.dart';
 import 'package:flutter/material.dart';
 import 'components/appbar.dart';
 import 'components/cards_area.dart';
@@ -15,29 +16,36 @@ class HotelHome extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey[100],
-      body: CustomScrollView(
-        slivers: [
-          const HotelAppBar(),
-          SliverList(
-            delegate: SliverChildListDelegate([
-              const HotelCardsArea(),
-              ListView.builder(
-                  physics: const NeverScrollableScrollPhysics(),
-                  scrollDirection: Axis.vertical,
-                  shrinkWrap: true,
-                  padding: const EdgeInsets.all(0),
-                  itemCount: images.length,
-                  itemBuilder: (ctx, index) {
-                    return RoomDetailsCardWithRating(
-                      image: images[index],
-                      rating: ratings[index],
-                      review: reviews[index],
-                      price: prices[index],
-                    );
-                  })
-            ]),
-          )
-        ],
+      body: SafeArea(
+        child: CustomScrollView(
+          slivers: [
+            const HotelAppBar(),
+            SliverList(
+              delegate: SliverChildListDelegate([
+                const HotelCardsArea(),
+                ListView.builder(
+                    physics: const NeverScrollableScrollPhysics(),
+                    scrollDirection: Axis.vertical,
+                    shrinkWrap: true,
+                    padding: const EdgeInsets.all(0),
+                    itemCount: images.length,
+                    itemBuilder: (ctx, index) {
+                      return GestureDetector(
+                        onTap: () {
+                          print('tapped');
+                        },
+                        child: RoomDetailsCardWithRating(
+                          image: images[index],
+                          rating: ratings[index],
+                          review: reviews[index],
+                          price: prices[index],
+                        ),
+                      );
+                    })
+              ]),
+            )
+          ],
+        ),
       ),
     );
   }

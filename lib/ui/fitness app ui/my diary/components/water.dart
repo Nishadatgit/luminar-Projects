@@ -153,26 +153,26 @@ class Water extends StatelessWidget {
                   padding: const EdgeInsets.all(5),
                   height: 130,
                   width: 65,
-                  // child: LiquidLinearProgressIndicator(
-                  //   borderRadius: 50,
-                  //   backgroundColor: Colors.grey[200],
-                  //   value: 0.5,
-                  //   borderColor: Colors.white,
-                  //   borderWidth: 0.1,
-                  //   center: const Padding(
-                  //     padding: EdgeInsets.only(top: 30.0),
-                  //     child: Text(
-                  //       '60%',
-                  //       style: TextStyle(
-                  //           color: Colors.white,
-                  //           fontSize: 18,
-                  //           fontWeight: FontWeight.bold),
-                  //     ),
-                  //   ),
-                  //   valueColor: const AlwaysStoppedAnimation(
-                  //       Color.fromARGB(255, 17, 55, 144)),
-                  //   direction: Axis.vertical,
-                  // ),
+                  child: LiquidLinearProgressIndicator(
+                    borderRadius: 50,
+                    backgroundColor: Colors.grey[200],
+                    value: 0.5,
+                    borderColor: Colors.white,
+                    borderWidth: 0.1,
+                    center: const Padding(
+                      padding: EdgeInsets.only(top: 30.0),
+                      child: Text(
+                        '60%',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                    valueColor: const AlwaysStoppedAnimation(
+                        Color.fromARGB(255, 17, 55, 144)),
+                    direction: Axis.vertical,
+                  ),
                 ),
               ),
               Positioned(

@@ -8,6 +8,9 @@ class HotelAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SliverAppBar(
+      floating: true,
+      pinned: true,
+      snap: true,
       backgroundColor: const Color.fromARGB(255, 34, 171, 178),
       leading: const Icon(Icons.menu),
       elevation: 0,
@@ -15,21 +18,21 @@ class HotelAppBar extends StatelessWidget {
         IconButton(onPressed: () {}, icon: const Icon(Icons.favorite_outline))
       ],
       bottom: PreferredSize(
-        preferredSize: const Size.fromHeight(100),
+        preferredSize: const Size.fromHeight(90),
         child: Padding(
           padding: const EdgeInsets.only(bottom: 20.0),
           child: Column(
             children: const [
-              Text(
-                'Type your Location',
-                style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 23,
-                    fontWeight: FontWeight.w500),
-              ),
-              SizedBox(
-                height: 10,
-              ),
+              // Text(
+              //   'Type your Location',
+              //   style: TextStyle(
+              //       color: Colors.white,
+              //       fontSize: 23,
+              //       fontWeight: FontWeight.w500),
+              // ),
+              // SizedBox(
+              //   height: 10,
+              // ),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 25.0),
                 child: TextField(
