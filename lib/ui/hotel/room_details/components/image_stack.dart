@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 
 class ImageStack extends StatelessWidget {
   ImageStack({
-    Key? key, required this.room,
+    Key? key,
+    required this.room,
   }) : super(key: key);
   final selected = ValueNotifier(false);
   final String room;
@@ -30,6 +31,19 @@ class ImageStack extends StatelessWidget {
             'DETAILS',
             style: TextStyle(
                 color: Colors.white, fontSize: 17, fontWeight: FontWeight.bold),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(top: 55.0, right: 350),
+          child: IconButton(
+            iconSize: 17,
+            icon: const Icon(
+              Icons.arrow_back_ios,
+              color: Colors.white,
+            ),
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
           ),
         ),
         Positioned(

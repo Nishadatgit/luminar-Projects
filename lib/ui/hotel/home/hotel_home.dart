@@ -11,6 +11,13 @@ class HotelHome extends StatelessWidget {
   static final ratings = [4.0, 4.0, 5.0, 2.0, 3.0];
   static final reviews = ['101', '203', '178', '45', '99'];
   static final prices = ['34', '45', '101', '55', '60'];
+  static final titles = [
+    'Awesome room near kakkanad',
+    'Five star room for rent',
+    'Four star room available',
+    'Beautiful room near lulu',
+    'Super conditioned room'
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -32,13 +39,19 @@ class HotelHome extends StatelessWidget {
                     itemBuilder: (ctx, index) {
                       return GestureDetector(
                         onTap: () {
-                          print('tapped');
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (ctx) =>
+                                  RoomMainPage(roomImage: images[index]),
+                            ),
+                          );
                         },
                         child: RoomDetailsCardWithRating(
                           image: images[index],
                           rating: ratings[index],
                           review: reviews[index],
                           price: prices[index],
+                          title: titles[index],
                         ),
                       );
                     })

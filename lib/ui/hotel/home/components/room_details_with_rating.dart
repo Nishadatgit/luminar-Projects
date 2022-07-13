@@ -6,12 +6,15 @@ class RoomDetailsCardWithRating extends StatelessWidget {
     Key? key,
     required this.image,
     required this.rating,
-    required this.review, required this.price,
+    required this.review,
+    required this.price,
+    required this.title,
   }) : super(key: key);
   final String image;
   final double rating;
   final String review;
   final String price;
+  final String title;
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +47,7 @@ class RoomDetailsCardWithRating extends StatelessWidget {
                   color: Colors.grey[200],
                   child: Text(
                     '\$$price',
-                    style: TextStyle(fontWeight: FontWeight.bold),
+                    style: const TextStyle(fontWeight: FontWeight.bold),
                   ),
                 ),
               ),
@@ -66,18 +69,18 @@ class RoomDetailsCardWithRating extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: const [
+              children: [
                 Text(
-                  'Awesome room near kakkanad',
-                  style: TextStyle(
+                  title,
+                  style: const TextStyle(
                       color: Colors.black,
                       fontSize: 20,
                       fontWeight: FontWeight.bold),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 5,
                 ),
-                Text(
+                const Text(
                   'kakkanad, Kochi',
                   style: TextStyle(color: Colors.black, fontSize: 14),
                 ),
@@ -92,7 +95,7 @@ class RoomDetailsCardWithRating extends StatelessWidget {
                   initialRating: rating,
                   minRating: 1,
                   direction: Axis.horizontal,
-                  allowHalfRating: true,
+                  allowHalfRating: false,
                   itemCount: 5,
                   itemSize: 22,
                   itemPadding: const EdgeInsets.symmetric(horizontal: 1.0),

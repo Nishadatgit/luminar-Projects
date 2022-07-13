@@ -33,7 +33,7 @@ class _RoomMainPageState extends State<RoomMainPage> {
         padding: const EdgeInsets.all(0),
         children: [
           ImageStack(
-            room: 'room1',
+            room: widget.roomImage,
           ),
           Column(
             children: [
